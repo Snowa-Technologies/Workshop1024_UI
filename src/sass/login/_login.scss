@@ -1,0 +1,106 @@
+.login-panel {
+    background-color: $snowa-bg-color-light;
+    height: 100vh;
+    @include flex-d-column-style;
+    .logo-box{
+      .snowa-image{
+        width: 200px;
+        height: inherit;
+      }
+    }
+    .login-container{
+        @include justify-align-center-style;
+        gap:80px;
+        padding: 0 20px 10px 20px;
+        .streamline-box {
+            @include flex-d-column-style;
+            gap:10px;
+          .title{
+            color:$snowa-text-primary-color;
+            font-size: $h3-font-size;
+            max-width: 600px;
+          }
+          .static-image {
+            height: inherit;
+            width: 500px;
+          }
+        }
+        .login-box {
+            @include flex-d-column-style;
+            align-items: center;
+            gap: 20px;
+          .snow-logo {
+            height: inherit;
+            width: 200px;
+          }
+          .login-entry-details {
+            background-color: $snowa-bg-color-login;
+            @include flex-d-column-style;
+            gap: 15px;
+            padding: 20px 30px;
+            border-radius: 10px;
+            .login-title {
+              font-size: $h3-font-size;
+              font-weight: $font-weight-semibold;
+              color: $snowa-bg-color-white;
+            }
+            .sub-title {
+              font-size: $h7-font-size;
+              color: $snowa-bg-color-white;
+            }
+            .text {
+              @include text-input-style;
+            }
+            .validation-border {
+                @include text-input-style;
+                @include text-input-error-style;
+            }
+            .input-label{
+              @include input-label-props;
+              background-color: white;
+              width: 28%;
+              border-radius: 5px 5px 0px ;
+              font-size: 16px;
+              color:#7f7f7f
+
+            }
+            .validation-error-box{
+              @include flex-d-column-style;
+              width: 300px;
+              gap:1px;
+              .validtion-error{
+                text-align: center;
+                @include error-label-style;
+              }
+            }
+            .forgot-password {
+              text-align: right;
+              @include error-label-style;
+              cursor: pointer;
+            }
+            .login-button-box{
+              align-self: center;
+              .button{
+                background-color: $snowa-bg-color-login-button;
+                color: $snowa-bg-color-login;
+                font-size: $h5-font-size ;
+                padding: 5px 40px;
+              }
+            }
+          }
+        }
+    }
+    .snowa-footer{
+      position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        .title{
+            font-size: $h5-font-size;
+            color:$snowa-text-secondary-medium;
+           cursor: pointer;
+        }
+    }
+  }

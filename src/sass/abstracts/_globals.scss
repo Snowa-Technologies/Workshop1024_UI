@@ -1,0 +1,216 @@
+//Input Text styles
+@mixin text-input-style {
+  background-color: $snowa-bg-color-white;
+  border-radius: 5px !important;
+  .MuiOutlinedInput-notchedOutline {
+    border: 2px solid $border;
+    border-radius: 4px !important;
+  }
+}
+@mixin page-layout-style {
+margin:20px;
+display: flex;
+flex-direction: column;
+gap: 2rem;
+}
+
+@mixin error-label-style{
+font-size: 14px;
+font-weight: $font-weight-semibold;
+color:$snowa-bg-color-white;
+}
+@mixin input-label-props{
+  font-size: 15px;
+  color:$black;
+}
+@mixin page-alignment{
+@include flex-d-column-style;
+margin: 20px;
+}
+@mixin page-title-style{
+  font-size: 20px;
+  color: $snowa-page-title-color;
+}
+@mixin form-title-style{
+font-size: 16px;
+font-weight: 500;
+color:#72429E;
+}
+@mixin text-box-style{
+  background-color: $snowa-bg-color-white;
+}
+@mixin file-title-style{
+  font-size: 16px;
+}
+@mixin save-button-style{
+ background-color:$snowa-bg-color-button ;
+ color:$snowa-bg-color-white;
+ width:100px;
+ height:40px;
+ text-transform: none;
+ cursor: pointer;
+}
+@mixin reset-button-style{
+background-color:$snowa-bg-color-white;
+color:$snowa-bg-color-button;
+border: 1px solid $snowa-bg-color-button;
+width:100px;
+height:40px;
+text-transform: none;
+cursor: pointer;
+}
+@mixin text-input-error-style {
+.MuiOutlinedInput-notchedOutline {
+    border: 0.5px solid $snowa-error-border;
+}
+}
+@mixin hr-line-style{
+width: 70px;
+display: inline-block;
+border: 1px solid #3f516c;
+}
+
+//Mantine styles
+@mixin top-toolbar-title{
+color: $snowa-bg-color-white;
+font-size: 15px;
+}
+@mixin pagination-select-box{
+height:40px;
+width:70px;
+margin:10px;
+}
+
+//Popup-Styles
+@mixin popup-title-style{
+  font-size: $h5-font-size;
+  color:$snowa-page-title-color;
+  font-weight: $font-weight-regular;
+}
+@mixin popup-close-icon-style{
+  color: $snowa-primary-color;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+}
+
+//Custom-tabel-styles
+
+@mixin custom-tabel-header-style{
+background-color: $snowa-secondary-color-dark;
+position: relative;
+height: 45px;
+border-radius: 5px 5px 0px 0px;
+border: 0.0625rem solid #dee2e6;
+padding: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+@mixin custom-tabel-header-title {
+color: $snowa-bg-color-white;
+font-weight: $font-weight-semibold;
+font-size: $h7-font-size ;
+}
+@mixin custom-tabel-row-style {
+background-color:$snowa-bg-color-white;
+min-height: 45px;
+border: 0.0625rem solid #dee2e6;
+padding: 10px;
+}
+@mixin custom-tabel-row-value {
+color: $snowa-tabel-value-color;
+font-size: $h7-font-size;
+}
+@mixin custom-tabel-error-label {
+@include justify-content-center;
+font-style: italic;
+font-weight: $font-weight-regular;
+color: #808080;
+}
+
+//Grid Styling 
+@mixin grid-box-header-style{
+background-color: $snowa-secondary-color-dark;
+position: relative;
+height: 45px;
+border-radius: 5px 5px 0px 0px;
+border: 0.0625rem solid #dee2e6;
+padding: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+@mixin grid-box-content-style{
+background-color:$snowa-bg-color-white;
+height: auto;
+border: 0.0625rem solid #dee2e6;
+border-top: none;
+padding: 10px;
+
+}
+@mixin grid-header-title-style{
+color: $snowa-bg-color-white;
+font-weight: 500;
+font-size: 14px;
+
+}
+@mixin grid-header-value-style{
+color: #6C6C6C;
+font-size: 14px;
+padding: 5px 0px;
+}
+@mixin grid-icon-style {
+height:20px;
+width:20px;
+cursor: pointer !important;
+}
+
+//Mantine-table-styles
+@mixin mantine-values-name-style{
+font-size: $h6-font-size;
+font-weight: $font-weight-semibold;
+color:$snowa-table-value-primary-color;
+width:140px;
+}
+@mixin line-seperator {
+border-left: 0.5px solid $snowa-line-sepeartor;
+height: 40px;
+margin: 5px;
+}
+
+
+//Flex-box styles
+@mixin flex-d-column-style{
+display: flex;
+flex-direction: column;
+}
+@mixin flex-align-center-style{
+display: flex;
+align-items: center;
+}
+@mixin justify-align-center-style{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+@mixin justify-space-between-style{
+display: flex;
+justify-content: space-between;
+}
+@mixin justify-between-align-center-style{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+@mixin flex-r-gap-style{
+display:flex;
+gap: 1.5rem;
+}
+@mixin flex-d-column-center-style{
+@include flex-d-column-style;
+align-items: center;
+}
+@mixin justify-content-center{
+display : flex;
+justify-content: center;
+}
+@mixin align-items-center{
+display : flex;
+align-items : center;
+}

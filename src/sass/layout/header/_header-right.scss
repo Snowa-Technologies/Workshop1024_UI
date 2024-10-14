@@ -1,0 +1,146 @@
+#main-screen-header {
+    color: black;
+    height: 75px;
+    width: 100%;
+    max-width: $screen-max-w;
+    display: flex;
+    align-items: center;
+
+    .logo.open{
+        padding: 10px 10px 10px 25px;
+        width: 250px;
+        margin-top: 5px;
+        img{
+            height: 60px;
+        }
+    }
+
+    .logo.close{
+        display: none;
+    }
+
+    .header-right {
+        display: flex;
+        flex: 1;
+
+        .search {
+            flex: 1;
+            display: flex;
+
+            .menu-icon {
+                margin: 5px;
+                width: 60px;
+                height: 60px;
+                color: $snowa-primary-color;
+                margin-right: 15px;
+            }
+
+            .school-logo {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                img {
+                    height: 60px;
+                }
+            }
+
+            .school-title{
+                font-family: $font-family-base;
+                font-size: 25px;
+                color: $snowa-text-primary-color;
+            }
+
+            #header-search {
+                width: 300px;
+            }
+
+            .MuiAutocomplete-root {
+                display: inline-flex;
+            }
+
+            .autocomplete-input-root {
+                .MuiInputLabel-outlined {
+                    transform: translate(14px, 10px) scale(1); 
+                    color: $snowa-logo;
+                    font-family: $font-family-base;
+                    &.Mui-focused {
+                      transform: translate(14px, -6px) scale(0.75);
+                    }
+                  }
+
+                .MuiOutlinedInput-root {
+                    font-size: 0.875rem; 
+                    padding: 4px 6px;  
+
+                    fieldset {
+                        border-color: #a89fb6;
+                    }
+                    &:hover fieldset {
+                        border-color: #a89fb6;
+                    }
+                    &.Mui-focused fieldset {
+                        border-color: #a89fb6;
+                    }
+
+                    .MuiOutlinedInput-notchedOutline {
+                        border-width: 1px;
+                    }
+                }
+            }
+        }
+
+        .controls {
+            .control-icon {
+                // float: right;
+                margin: 9px 5px;
+                border-radius: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: map-get($snowa-colors, "light-25");
+                color: $snowa-primary-color;
+                margin-right: 15px;
+            }
+
+            .control-icon.notifications {
+                background-color: $snowa-bg-color-vlighter;
+                color: $snowa-icon-notification-color;
+            }
+        }
+    }
+
+    #loggedInuser {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        border-radius: .5rem 33px 33px 0.5rem;
+        background-color: $snowa-primary-color;
+        color: $snowa-bg-color-white;
+        padding: 0 0 0 20px;
+        height: 50px;
+        margin: 10px 10px 0 0;
+    
+        .name {
+            padding-right: 20px;
+            text-align: right;
+            strong {
+                font-weight: 600;
+            }
+        }
+    
+        .userpic {
+            position: relative;
+            background: $snowa-bg-color-user;
+            border-radius: 3rem;
+            border: 3px solid $snowa-bg-color-white;
+            margin: 2px;
+
+            .userIcon {
+                height: 35px;
+                width: 42px;
+                border-radius: 100px;
+            }
+        }
+    }
+}

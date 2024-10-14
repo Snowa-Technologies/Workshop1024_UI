@@ -1,0 +1,18 @@
+
+{
+    "subdomains": [
+        {
+            "ocode": "DEMO",
+            "bcode": "1",
+            "sdname": "demo",
+            "oname": "Demo Educational Institutions",
+            "logo":"DemoLogo",
+            "address": "Madhapur, Hitech city, Hyderabad",
+            "path": "log",
+            "ftype": "structured",
+            "allow": ["log","wf","pcy","mf","ter","pr"],
+            "unm": "Admission No",
+            "lnext":"wf"
+        }
+    ]
+}

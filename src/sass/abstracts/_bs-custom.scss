@@ -1,0 +1,83 @@
+$font-size-base     : 0.875rem !default;
+$font-weight-base   : 400 !default;
+
+// Typography
+$font-family-base: 'poppins', sans-serif;
+
+$h1-font-size       : 2.25rem;  // 36px
+$h2-font-size       : 1.875rem; // 30px
+$h3-font-size       : 1.5rem;   // 24px
+$h4-font-size       : 1.125rem; // 18px
+$h5-font-size       : 1rem;     // 16px
+$h6-font-size       : 0.938rem; // 15px
+$h7-font-size       : 0.875rem; // 14px
+$h8-font-size       : 0.813rem;  //13px
+$h9-font-size       : 0.75rem;  // 12px
+$h10-font-size      : 0.688rem;  // 11px
+$h11-font-size      : 1.25rem;  // 20px
+$h12-font-size      : 1.063rem; //17px
+
+//Font Weights
+$font-weight-regular:400;
+$font-weight-semibold:500;
+$font-weight-bold:600;
+
+
+
+//
+// Color system
+//
+$white   : #fff !default;
+$blue  : #5e72e4;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+
+$snowa-logo  : #6617ac !default;
+$snowa-light : #bb9fdd !default;
+$snowa-dark : #4c2975 !default;
+$snowa-mlight : #bb9fdd85 !default;
+$snowa-vlight: #9d67ea4a !default;
+
+$snowa-colors: () !default;
+$snowa-colors: map-merge((
+  "logo": $snowa-logo,
+  "light": $snowa-light,
+  "dark": $snowa-dark,
+  "light-50": $snowa-mlight,
+  "light-25": $snowa-vlight
+), $snowa-colors);
+
+$colors: () !default;
+$colors: map-merge((
+	  "blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "white": $white),
+  $colors);
+  
+$primary  : #2f4cdd !default;
+$secondary: #3e4954 !default;
+$success  : #2bc155 !default;
+$info     : #2781d5 !default;
+$warning  : #ff6d4d !default;
+$danger   : #f72b50 !default;
+$light    : #c8c8c8 !default;
+$dark     : #6e6e6e;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(("primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark),
+  $theme-colors);
+
+$grid-breakpoints: (xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440);

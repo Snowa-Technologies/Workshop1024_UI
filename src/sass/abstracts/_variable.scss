@@ -1,0 +1,158 @@
+//customize bootstrap
+@import './bs-custom';
+
+//Snowa variables
+$screen-max-w: 1600px;
+$sidebar-width: 300px;
+
+//Snowa theme colors
+//Base colors
+$snowa-primary-color:#6617ac;
+$snowa-secondary-color-dark:#8b4fc1;
+$snowa-secondary-color-light:#8452ba;
+$snowa-secondary-color-lighter:#8B4FC1;
+$snowa-secondary-color-vlight:#F7F0FF;
+$snowa-page-title-color:#38578A;
+$snowa-icon-notification-color:#ff6d4d;
+//Backgrond colors
+$snowa-bg-color-dark:#4b1d77;
+$snowa-bg-color-light:#ede0fe;
+$snowa-bg-color-lighter:#f9f6ff;
+$snowa-bg-color-vlighter:#ffeae6;
+$snowa-bg-color-white:#ffffff;
+$snowa-bg-color-user:#c54626;
+$snowa-bg-color-login:#764390;
+$snowa-bg-color-login-button:#dde0fe;
+$snowa-bg-color-button:#374f7f;
+$snowa-bg-color-class-sec:#dbcbed;
+$snowa-bg-color-separator-line : #ECEEFE;
+$snowa-bg-color-icon : #f0e8f7;
+$snowa-bg-notice-status-color : #f1e8f5;
+$snowa-bg-piechart-pending-color : #e6d9ff;
+
+//Shades and Tints
+$snowa-shade-color-menu:$snowa-bg-color-dark;
+$snowa-shade-color-header:#0129701a;
+$snowa-shade-color-box:#e4dfe9;
+$snowa-shade-color-panel: #523f690d;
+
+
+//Text colors
+$snowa-text-primary-color:#012970;
+$snowa-text-secondary-medium:#7f7f7f;
+$snowa-text-secondary-color-dark:#7e7e7e;
+$snowa-text-secondary-color-light:#6e6e6e;	
+$snowa-text-pending-color:#F15248;;
+$snowa-text-completed-color:#1E9F23;
+$snowa-text-completed-color-light:#20c946;
+$snowa-text-dashboard-title-color : #3A578A;
+$snowa-text-ntc-dur-color : #888888;
+$snowa-table-value-primary-color:#3a578a;
+$snowa-panel-label-color:#574d4d;
+$snowa-panel-value-color:#1152e3;
+$snowa-tabel-text-shade:#282222ed;
+$snowa-tabel-contact-icon:#72429e;
+$snowa-line-sepeartor: #E7E7EB;
+$snowa-text-secondary-light:#AFA9A9;
+$snowa-text-delivered-color : #83178d;
+$snowa-text-read-color : #008000;
+$snowa-text-grid-value-color : #6C6C6C;
+$snowa-border-color : #f0e8f7;
+$snowa-notice-status-tick-color: #766092;
+$snowa-status-send-color : #bcc1cc;
+$snowa-fee-collection-std-ctn : #042b72;
+$snowa-tabel-value-color:#6C6C6C;
+$snowa-image-border-color : #f0ebeb;
+$snowa-paymenthistory-border-color : #e3e5e8;
+$snowa-main-separator-border-color : #dbdbd9;
+$snowa-due-amount-color : #ff0000;
+$snowa-text-today-ntc-colr : #FFA500;
+$snowa-upload-box-border : #b1b6bc;
+$snowa-click-link-color : #3030fe;
+
+
+$strong:#646c9a;
+$border: #f0f1f5;
+$shadow-box: 0px 0px 10px $snowa-shade-color-box;
+$body-bg: #f1f1f1;
+
+//Border colors
+$snowa-border-primary:#e6e6e6;
+$snowa-error-border:#FF0000;
+$snowa-box-shadow-color : #0000001a;
+
+///////////////
+// Solid Color
+///////////////
+$white: #fff;
+$black: #000;
+$charade: #23252F;
+
+/////////////////////////
+// Primary Light
+/////////////////////////
+$primary-light: lighten($primary, 45%);
+$secondary-light: lighten($secondary, 65%);
+$success-light: lighten($success, 48%);
+$warning-light: lighten($warning, 30%);
+$danger-light: lighten($danger, 38%);
+$info-light: lighten($info, 47%);
+$dark-light: lighten($dark, 40%);
+
+/////////////////////////
+// Opacity 
+/////////////////////////
+$primary-opacity: rgba($primary, 0.2);
+$secondary-opacity: rgba($secondary, 0.5);
+$success-opacity: rgba($success, 0.1);
+$warning-opacity: rgba($warning, 0.1);
+$danger-opacity: rgba($danger, 0.15);
+$info-opacity: rgba($info, 0.1);
+$dark-opacity: rgba($dark, 0.35);
+
+////////////////////////
+// Light Version Color
+////////////////////////
+$l-ctd: #464a53;
+$l-ctl: #828690;
+$l-border: #eaeaea;
+$l-bg: #f2f4fa;
+$heading: #333;
+
+///////////////////
+// Material Colors
+///////////////////
+$dusty-gray: #999999;
+$gallery: #EEEEEE;
+$gray: #898989;
+$input-border-color: $border;
+
+
+///////////////////
+// Misc Colors
+///////////////////
+$iron: #DDDFE1;
+$grey: #D2D6DE;
+$pale-sky: #6a707e;
+$athensGray: #F0F0F2;
+$sky: #2290FF;
+
+//utility variables
+$radius: 0.5rem; 
+
+:root{
+	--primary: #{$primary};
+	--secondary: #{$secondary};
+	--primary-hover: #{darken($primary, 10)};
+	--primary-dark: #{darken($primary, 30)};
+	--rgba-primary-1: #{rgba($primary, 0.1)};
+	--rgba-primary-2: #{rgba($primary, 0.2)};
+	--rgba-primary-3: #{rgba($primary, 0.3)};
+	--rgba-primary-4: #{rgba($primary, 0.4)};
+	--rgba-primary-5: #{rgba($primary, 0.5)};
+	--rgba-primary-6: #{rgba($primary, 0.6)};
+	--rgba-primary-7: #{rgba($primary, 0.7)};
+	--rgba-primary-8: #{rgba($primary, 0.8)};
+	--rgba-primary-9: #{rgba($primary, 0.9)};
+}
+
