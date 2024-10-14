@@ -1,0 +1,36 @@
+.campaign-main{
+    @include page-layout-style;
+    .title{
+       @include  page-title-style;
+    }
+    .text-box{
+        @include text-box-style;
+    }
+    .error-Validation{
+        @include text-input-error-style;
+        background-color: $snowa-bg-color-white;
+    }
+    .buttons-container{
+        @include justify-align-center-style;
+        position: relative; 
+        gap:40px;
+        .all-buttons{
+            @include flex-align-center-style;
+            gap: 40px;
+            .cancel-button{
+                @include reset-button-style;
+            }
+            .addstudent-button{
+                @include save-button-style;
+            }
+        }
+        .alert{
+            height: 40px;
+            position: absolute; 
+            right: 0; 
+        }
+    }
+}
+
+
+

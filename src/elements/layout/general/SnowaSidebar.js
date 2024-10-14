@@ -26,7 +26,7 @@ function SnowaSidebar({}) {
                                         <Link to="/">DATAPULSE</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<GridViewRoundedIcon />}>
-                                        <Link to="/">Campaigns</Link>  
+                                        <Link to="/campaigns">Campaigns</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<GridViewRoundedIcon />}>
                                         <Link to="/">Promotions</Link>  
