@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+:root {
+  --primary: #2f4cdd;
+  --secondary: #3e4954;
+  --primary-hover: rgb(30.4876033058, 56.4917355372, 186.5123966942);
+  --primary-dark: rgb(16.1570247934, 29.9380165289, 98.8429752066);
+  --rgba-primary-1: rgba(47, 76, 221, 0.1);
+  --rgba-primary-2: rgba(47, 76, 221, 0.2);
+  --rgba-primary-3: rgba(47, 76, 221, 0.3);
+  --rgba-primary-4: rgba(47, 76, 221, 0.4);
+  --rgba-primary-5: rgba(47, 76, 221, 0.5);
+  --rgba-primary-6: rgba(47, 76, 221, 0.6);
+  --rgba-primary-7: rgba(47, 76, 221, 0.7);
+  --rgba-primary-8: rgba(47, 76, 221, 0.8);
+  --rgba-primary-9: rgba(47, 76, 221, 0.9);
+}
+
+/*
+0 - 600: Phone
+600 - 900: Tablet portrait
+900 - 1200: Tablet landscape
+1200 - 1800: Normal styles
+1800+ : Big Desktop
+1em = 16px
+The smaller device rules always should write below the bigger device rules
+Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
+*/
+* {
+  outline: none;
+  padding: 0;
+}
+*::after {
+  margin: 0;
+  padding: 0;
+}
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100%;
+  position: relative;
+  max-width: 100%;
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+}
+
+p {
+  line-height: 1.8;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#main-screen-header {
+  color: black;
+  height: 75px;
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+}
+#main-screen-header .logo.open {
+  padding: 10px 10px 10px 25px;
+  width: 250px;
+  margin-top: 5px;
+}
+#main-screen-header .logo.open img {
+  height: 60px;
+}
+#main-screen-header .logo.close {
+  display: none;
+}
+#main-screen-header .header-right {
+  display: flex;
+  flex: 1;
+}
+#main-screen-header .header-right .search {
+  flex: 1;
+  display: flex;
+}
+#main-screen-header .header-right .search .menu-icon {
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  color: #6617ac;
+  margin-right: 15px;
+}
+#main-screen-header .header-right .search .school-logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+#main-screen-header .header-right .search .school-logo img {
+  height: 60px;
+}
+#main-screen-header .header-right .search .school-title {
+  font-family: "poppins", sans-serif;
+  font-size: 25px;
+  color: #012970;
+}
+#main-screen-header .header-right .search #header-search {
+  width: 300px;
+}
+#main-screen-header .header-right .search .MuiAutocomplete-root {
+  display: inline-flex;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiInputLabel-outlined {
+  transform: translate(14px, 10px) scale(1);
+  color: #6617ac;
+  font-family: "poppins", sans-serif;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiInputLabel-outlined.Mui-focused {
+  transform: translate(14px, -6px) scale(0.75);
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiOutlinedInput-root {
+  font-size: 0.875rem;
+  padding: 4px 6px;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiOutlinedInput-root fieldset {
+  border-color: #a89fb6;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiOutlinedInput-root:hover fieldset {
+  border-color: #a89fb6;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #a89fb6;
+}
+#main-screen-header .header-right .search .autocomplete-input-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-width: 1px;
+}
+#main-screen-header .header-right .controls .control-icon {
+  margin: 9px 5px;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(157, 103, 234, 0.2901960784);
+  color: #6617ac;
+  margin-right: 15px;
+}
+#main-screen-header .header-right .controls .control-icon.notifications {
+  background-color: #ffeae6;
+  color: #ff6d4d;
+}
+#main-screen-header #loggedInuser {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 0.5rem 33px 33px 0.5rem;
+  background-color: #6617ac;
+  color: #ffffff;
+  padding: 0 0 0 20px;
+  height: 50px;
+  margin: 10px 10px 0 0;
+}
+#main-screen-header #loggedInuser .name {
+  padding-right: 20px;
+  text-align: right;
+}
+#main-screen-header #loggedInuser .name strong {
+  font-weight: 600;
+}
+#main-screen-header #loggedInuser .userpic {
+  position: relative;
+  background: #c54626;
+  border-radius: 3rem;
+  border: 3px solid #ffffff;
+  margin: 2px;
+}
+#main-screen-header #loggedInuser .userpic .userIcon {
+  height: 35px;
+  width: 42px;
+  border-radius: 100px;
+}
+
+.box-fixed {
+  max-width: 1600px;
+}
+.box-fixed #main-sidebar .drawer {
+  width: 300px;
+  box-shadow: 0px 0px 10px #4b1d77;
+  position: fixed;
+  height: 100vh;
+}
+.box-fixed #main-sidebar .drawer .MuiDrawer-paper {
+  overflow-x: hidden;
+  border: none;
+  background-color: #4b1d77;
+}
+.box-fixed #main-sidebar .drawer .MuiDrawer-paper .css-1wvake5 {
+  border: none !important;
+}
+.box-fixed #main-sidebar .drawer .menu {
+  width: 300px;
+  padding-top: 15px;
+}
+.box-fixed #main-sidebar .drawer .menu .css-dip3t8 {
+  background-color: #4b1d77;
+}
+.box-fixed #main-sidebar .drawer .menu a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.box-fixed #main-sidebar .drawer .ps-submenu-content {
+  background-color: #ede0fe;
+}
+.box-fixed #main-sidebar .drawer .ps-submenu-content a {
+  color: #012970;
+}
+.box-fixed #main-sidebar .drawer .ps-menu-button:hover {
+  background-color: #8452ba;
+}
+.box-fixed #main-sidebar .drawer .ps-menu-button:hover a {
+  color: #ffffff;
+}
+.box-fixed #main-sidebar .drawer .ps-menu-label {
+  font-family: "poppins", sans-serif;
+}
+.box-fixed #main-sidebar .drawer .css-honxw6 {
+  width: 7px;
+  height: 7px;
+}
+.box-fixed #main-sidebar .drawer-back {
+  width: 360px;
+  height: 100%;
+  visibility: hidden;
+}
+.box-fixed #main-sidebar .main-content {
+  padding-left: 10px;
+}
+
+.login-panel {
+  background-color: #ede0fe;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.login-panel .logo-box .snowa-image {
+  width: 200px;
+  height: inherit;
+}
+.login-panel .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 0 20px 10px 20px;
+}
+.login-panel .login-container .streamline-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-panel .login-container .streamline-box .title {
+  color: #012970;
+  font-size: 1.5rem;
+  max-width: 600px;
+}
+.login-panel .login-container .streamline-box .static-image {
+  height: inherit;
+  width: 500px;
+}
+.login-panel .login-container .login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.login-panel .login-container .login-box .snow-logo {
+  height: inherit;
+  width: 200px;
+}
+.login-panel .login-container .login-box .login-entry-details {
+  background-color: #764390;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+.login-panel .login-container .login-box .login-entry-details .login-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.login-panel .login-container .login-box .login-entry-details .sub-title {
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+.login-panel .login-container .login-box .login-entry-details .text {
+  background-color: #ffffff;
+  border-radius: 5px !important;
+}
+.login-panel .login-container .login-box .login-entry-details .text .MuiOutlinedInput-notchedOutline {
+  border: 2px solid #f0f1f5;
+  border-radius: 4px !important;
+}
+.login-panel .login-container .login-box .login-entry-details .validation-border {
+  background-color: #ffffff;
+  border-radius: 5px !important;
+}
+.login-panel .login-container .login-box .login-entry-details .validation-border .MuiOutlinedInput-notchedOutline {
+  border: 2px solid #f0f1f5;
+  border-radius: 4px !important;
+}
+.login-panel .login-container .login-box .login-entry-details .validation-border .MuiOutlinedInput-notchedOutline {
+  border: 0.5px solid #FF0000;
+}
+.login-panel .login-container .login-box .login-entry-details .input-label {
+  font-size: 15px;
+  color: #000;
+  background-color: white;
+  width: 28%;
+  border-radius: 5px 5px 0px;
+  font-size: 16px;
+  color: #7f7f7f;
+}
+.login-panel .login-container .login-box .login-entry-details .validation-error-box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 1px;
+}
+.login-panel .login-container .login-box .login-entry-details .validation-error-box .validtion-error {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.login-panel .login-container .login-box .login-entry-details .forgot-password {
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+}
+.login-panel .login-container .login-box .login-entry-details .login-button-box {
+  align-self: center;
+}
+.login-panel .login-container .login-box .login-entry-details .login-button-box .button {
+  background-color: #dde0fe;
+  color: #764390;
+  font-size: 1rem;
+  padding: 5px 40px;
+}
+.login-panel .snowa-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.login-panel .snowa-footer .title {
+  font-size: 1rem;
+  color: #7f7f7f;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
