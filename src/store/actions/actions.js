@@ -13,6 +13,12 @@ export const addNewCampaignActions = { // Action types to add newCampaign
     RESET_NEW_CAMPAIGN_STATE: "RESET_NEW_CAMPAIGN_STATE"
 };
 
+export const addPromotionActions = { // Action types to add new promotion
+    ADD_PROMOTION_SUCCESS: "ADD_PROMOTION_SUCCESS",
+    ADD_PROMOTION_FAILURE: "ADD_PROMOTION_FAILURE",
+    RESET_PROMOTION_STATE: "RESET_PROMOTION_STATE"
+};
+
 
 
 

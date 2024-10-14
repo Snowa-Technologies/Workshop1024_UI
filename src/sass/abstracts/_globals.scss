@@ -15,9 +15,9 @@ gap: 2rem;
 }
 
 @mixin error-label-style{
-font-size: 14px;
-font-weight: $font-weight-semibold;
-color:$snowa-bg-color-white;
+  font-size: 14px;
+  font-weight: $font-weight-semibold;
+  color:$snowa-bg-color-white;
 }
 @mixin input-label-props{
   font-size: 15px;
