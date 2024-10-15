@@ -8,7 +8,7 @@ export const IMAGES = {
 }
 
 export const SCHOOL_LOGOS = {
-    DemoLogo: require("../images/merchantLogos/demo_logo.png")
+    MaxLogo: require("../images/merchantLogos/max_logo.png")
 }
 
 export const SVGICON = {
