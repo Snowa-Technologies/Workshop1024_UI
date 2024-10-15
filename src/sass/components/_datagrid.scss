@@ -1,318 +1,75 @@
-.table-container{
-    @include flex-d-column-style;
-    gap:30px;
-    &.grid-main{
-        padding: 20px;
+.table-mantine{
+    .mantine-ugfcki{
+        background-color: $snowa-bg-color-light;
+        height: 45px;
     }
-    .page-title{
-        @include page-title-style;
+    .mantine-TableHeadCell-Content-Wrapper{
+        color: #173a7d;
+      }
+    .mantine-1te4qfz{
+        min-width: 280px !important;
     }
-    .search-fields-box{
-        display: flex;
-        gap:20px;
-        .user-search-box{
-            @include text-box-style;
-        }
-        .filter-box{
-            @include text-box-style;
-            width:150px;
-        &.status-filter {
-            width:250px !important;
-        }
+    .mantine-16fo3jc{
+        min-width: 200px !important;
     }
+    .mantine-augnbd>thead>tr>th, .mantine-augnbd>tbody>tr>td{   
+        padding: 10px 5px 5px 15px;
     }
-    .search-box{
-        @include text-box-style;
-        margin-left: auto;
-        .button{
-            @include save-button-style;
-            width:150px;
+    .top-toolbar {
+        @include justify-space-between-style;
+        background-color: $snowa-secondary-color-dark;
+        padding: 10px 20px;
+        height: 45px;
+        &.title{
+            @include top-toolbar-title;
         }
     }
-    .filters-main{
-        @include justify-align-center-style;
-        .text-box{
-         @include text-box-style;
-        } 
-        .reminder-button{
-         @include save-button-style;
-         width: 150px;
-        }
-     }
-    .table-mantine{
-        .mantine-ugfcki{
-            background-color: $snowa-bg-color-light;
-            height: 45px;
-        }
-        .mantine-1te4qfz{
-            min-width: 280px !important;
-        }
-        .mantine-16fo3jc{
-            min-width: 200px !important;
-        }
-        .mantine-augnbd>thead>tr>th, .mantine-augnbd>tbody>tr>td{   
-            padding: 10px 5px 5px 15px;
-        }
-        .top-toolbar {
-            @include justify-space-between-style;
-            background-color: $snowa-secondary-color-dark;
-            padding: 10px 20px;
-            height: 45px;
-            .toolbar-heading {
-                @include top-toolbar-title;
-            }
-            .toolbar{
-                @include justify-space-between-style;
-                gap:40px;
-                .excel-icon{
-                    @include grid-icon-style;
-                    color: white;
-                }
-            }
-            .more-btn{
-                color: $snowa-bg-color-white;
-                font-size: $h8-font-size ;
-                font-style: italic;
-                cursor: pointer;
-                text-decoration: underline;
-            }
-        }
-        .bottom-toolbar-pagination {
-            @include justify-between-align-center-style;
-            padding:5px 20px;
-            .current-page{
-               @include flex-align-center-style;
-                gap:5px;
-            }
-            .sub-bottom-container {
-                @include flex-align-center-style;
-                .pagesize-select{
-                    @include pagination-select-box;
-                }
-            }
-        }
-        .name-container{
-           @include  flex-align-center-style;
+    .pagination-toolbar {
+        @include justify-between-align-center-style;
+        padding:5px 20px;
+        .current-page{
+           @include flex-align-center-style;
             gap:5px;
-            .image-icon{
-                width:40px;
-                border-radius: 50%;
-            }
-            .line-separator{
-               @include line-seperator;
-            }
         }
-        .column-box{
-            @include flex-d-column-style;
-            gap:3px;
-            &.list{
-                margin-bottom: 5px;
-            }
-            .name{
-                @include  mantine-values-name-style;
-                &.width{
-                    width : 170px;
-                }
-                &.details{
-                    cursor: pointer !important;
-                }
-                &.subname{
-                    font-size: $h8-font-size;
-                    font-weight: $font-weight-semibold;
-                }
-                &.name-gap{
-                    margin-top: 3px;
-                }
-            }
-            .number{
-                font-size: $h8-font-size;
-                font-weight: $font-weight-regular;
-                color:$snowa-secondary-color-lighter;
-            }
-            .clg-name{
-                font-size: $h6-font-size;
-                font-weight:$font-weight-regular;
-            }
-            .contact-column{
-                @include flex-align-center-style;
-                gap:10px;
-                .phone-icon-style{
-                    font-size:13px;
-                    color: $snowa-tabel-contact-icon;
-                }
-                .phone-number-text{
-                @include mantine-values-name-style;
-                font-size: $h8-font-size  !important;
-                }
-                .mail-link{
-                    font-size:13px;
-                }
-            }
-        }
-        .class-sec{
-            color: $snowa-secondary-color-light;
-            background-color: $snowa-bg-color-class-sec;
-            text-align: center;
-            border-radius: 5px;
-            width: 50px;
-            padding: 5px;
-            font-size: $h9-font-size;
-        }
-        .u-details{
-            font-size: $h7-font-size;
-            font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            &.date {
-                width:150px !important;
-            }
-            &.dep-width{
-                width : 260px;
-            }
-            &.large-width {
-                width: 300px;
-            }
-            &.light-date-color {
-                color : $snowa-text-ntc-dur-color 
-            }
-            &.duration{
-                width : 175px;
-            }
-            &.mid-width {
-                width: 200px;
-            }
-            &.txnid {
-                width: 240px;
-            }
-            &.latefee {
-                color: $snowa-text-pending-color;
-            }
-            &.ontime{
-                color: $snowa-text-completed-color-light;
-            }
-            &.medium-text{
-                width : 100px;
-            }
-            &.large-text{
-                width : 185px;
-            }
-        }
-        .status-bg{
-            background-color: $snowa-bg-color-class-sec;
-            font-size: $h7-font-size;
-            align-self: center;
-            width: 55px;
-            padding: 4px;
-            text-align: center;
-            border-radius: 3px;
-            .sent{
-                font-weight: $font-weight-semibold;
-                color: $snowa-text-dashboard-title-color ;
-            }
-        }
-        .icons-container{
-            display: flex;
-            gap: 30px;
-            .notice-icon{
-                @include grid-icon-style;
-                cursor: pointer;
-                &.view-icon{
-                    color:#8B4FC1;
-                }
-                &.edit-icon{
-                    color : #6617ac;
-                }
-                &.delete-icon{
-                    color : #F15248;
-                }
-                &.disabled{
-                    opacity: 0.5; 
-                    pointer-events: none;
-                    cursor: not-allowed; 
-                }
-            }
-        }
-        .view-icon{
-            @include grid-icon-style;
-            color:#8B4FC1;
-            cursor: pointer;
-        }
-        .person {
-            @include grid-icon-style;
-            height: 30px;
-            &.active {
-                color: #8B4FC1;
-            }
-            &.inactive{
-                color: #F15248;
-            }
-        }
-        .link{
-            width:16px;
-            height: 16px;
-        }
-        .fee-container{
+        .pagesize {
             @include flex-align-center-style;
-            gap:5px;
-            .fee-title{
-                font-size: $h7-font-size;
-                color: $snowa-panel-label-color;
-                width: 150px;  
-            }
-            .fee-value{
-                font-size: $h8-font-size;
-                color: $snowa-panel-value-color;
-                font-weight: $font-weight-semibold;
-                align-self: flex-start;
+            .selected-page{
+                @include pagination-select-box;
             }
         }
-        .bottom-toolbar-pagination {
-            @include justify-between-align-center-style;
-            padding:5px 20px;
-            .current-page{
-               @include flex-align-center-style;
-                gap:5px;
-            }
-            .sub-bottom-container {
-                @include flex-align-center-style;
-                .pagesize-select{
-                    @include pagination-select-box;
-                }
-            }
+    }
+    .data-column{
+        font-size: $h7-font-size;
+        font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        &.date {
+            width:150px !important;
         }
-        .status-container{
-            border-radius: 5px;
-            max-width: 80px;
-            font-weight: $font-weight-regular;
-            text-align: center;
-            .status-text{
-                font-size: 11px;
-                padding: 3px;
-              }
-              &.success{
-                color:$snowa-text-completed-color-light;
-                border: 1px solid $snowa-text-completed-color-light;
-              }
-              &.Failed{
-                color: $snowa-error-border;
-                border: 1px solid $snowa-error-border;
-              }
+        &.large-width {
+            width: 260px;
         }
-        .pmodes{
-            font-size: 13px;
-            &.netBanking{
-                color: $snowa-bg-color-button;
-            }
-            &.upi{
-                color: $snowa-secondary-color-dark;
-            }
-            &.card{
-                color: $snowa-text-completed-color;
-            }
-            &.cash{
-                color: $snowa-text-delivered-color;
-            }
+        &.inactive {
+            color: $snowa-text-pending-color;
         }
-        .multi-fields{
-            min-width: 220px !important;
+        &.active{
+            color: $snowa-text-completed-color-light;
+        }
+        &.title{
+            @include mantine-values-name-style;
+        }
+       
+    }
+    .action-column{
+        display: flex;
+        gap: 30px;
+        .action-icon{
+            @include grid-icon-style;
+            cursor: pointer;
+            &.edit{
+                color : #6617ac;
+            }
+            &.delete{
+                color : #F15248;
+            }
         }
     }
 }
