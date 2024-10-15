@@ -5,15 +5,20 @@ import { useDispatch, useSelector } from "react-redux"
 import CampaignIcon from '@mui/icons-material/Campaign';
 import { FaUsersViewfinder } from "react-icons/fa6";
 import StatisticsBox from "./Components/StatisticBox";
-
+import {getStatisticsData} from "../../store/actions/dashboard-action";
+import {formatAmount} from "../../global/utils";
+ 
 function Dashboard() {
   const dispatch = useDispatch();
   const fetchOnce = useRef(false);
+
+  const dashboardData = useSelector(state =>  state.getDashboardReducer.dashboardData);
   /**
    * Get revenue data to display in dashboard 
    */
   useEffect(() => {
     if (!fetchOnce.current) {
+      dispatch(getStatisticsData());
       fetchOnce.current = true;  
     }
   },[dispatch]);
@@ -28,8 +33,12 @@ function Dashboard() {
         <Box className="dashboard-main">
             <Box className="fee-container" >
               <Box className="fee-subcontainer">
-                <StatisticsBox mtitle={"Total Campaigns"} stitle={"Total Promotions"} mdata={"5"} sdata={"10"} icon={<CampaignIcon/>} />
-                <StatisticsBox mtitle={"Total Impressions"} stitle={"Total Clicks"} mdata={"10,000"} sdata={"1,500"} icon={<FaUsersViewfinder/>} />
+              <React.Fragment>
+                  <StatisticsBox mtitle={"Total Campaigns"} stitle={"Total Promotions"} mdata={formatAmount(dashboardData.totalCampaigns)} 
+                      sdata={formatAmount(dashboardData.totalPromotions)} icon={<CampaignIcon/>} />
+                  <StatisticsBox mtitle={"Total Impressions"} stitle={"Total Clicks"} mdata={formatAmount(dashboardData.totalImpressions)}
+                     sdata={formatAmount(dashboardData.totalClicks)} icon={<FaUsersViewfinder/>} />
+                </React.Fragment>
               </Box>
             </Box>
           </Box>

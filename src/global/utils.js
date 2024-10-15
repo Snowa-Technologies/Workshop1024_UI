@@ -43,3 +43,15 @@ export const utils = (() => {
     };
     return utils;
 });
+
+/***
+ * This Function is convert number to amount Formate
+ */
+
+export const formatAmount = (amount) => {
+    if(amount) {
+        const formattedAmount = new Intl.NumberFormat('en-IN').format(Number(amount));
+        return formattedAmount
+    }
+    return 0;
+}

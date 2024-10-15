@@ -18,6 +18,7 @@ const StatisticsBox = ({ mtitle, stitle, mdata, sdata, icon }) => {
                   </span>
                 </Tooltip>
               </Typography>
+              <Typography className = "box-value total">{mdata}</Typography>
             </Box>
           </Box>
       </Box>

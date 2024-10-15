@@ -42,7 +42,7 @@
           @include flex-align-center-style;
           gap : 0.2rem;
           .box-title {
-            font-size: $h6-font-size;
+            font-size: $h5-font-size;
             font-weight: $font-weight-semibold;
             text-align: left;
             color: $snowa-text-secondary-color-dark;
@@ -60,7 +60,7 @@
         .box-value {
           text-align: left;
           font-weight: $font-weight-semibold !important;
-          font-size: $h4-font-size;
+          font-size: $h13-font-size;
           &.total {
             color: $snowa-text-primary-color;
           }
@@ -84,14 +84,14 @@
     display: flex;
     flex: 1;
     .title{
-      color: $snowa-text-secondary-color-light;
-      font-size:$h8-font-size;
+      color: $snowa-text-primary-color;
+      font-size:$h7-font-size;
       flex: 1;
       margin-bottom: 2px;
     }
     .value{
-       font-size: $h4-font-size;
-       color: $snowa-text-primary-color;
+       font-size: $h13-font-size;
+       color: $snowa-text-completed-color;
        font-weight: $font-weight-semibold !important;
     }
   }

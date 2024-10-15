@@ -19,6 +19,12 @@ export const getCampaignsActions = { // Action types to fetch allCampaigns
     GET_CAMPAIGNS_FAILURE:    'GET_CAMPAIGNS_FAILURE'
 };
 
+export const getStatisticsActions = { // Action types to fetch dashboard statistics
+    GET_STATISTICS_SUCCESS:    'GET_STATISTICS_SUCCESS',
+    GET_STATISTICS_FAILURE:    'GET_STATISTICS_FAILURE'
+};
+
+
 
 
 
