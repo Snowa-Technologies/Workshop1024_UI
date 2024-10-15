@@ -38,6 +38,10 @@
         @include flex-d-column-style;
         flex: 1;
         gap: 0.4rem;
+        .whatsapp-value-main{
+          @include flex-d-column-style;
+          gap : 3px;
+        }
         .title-header-main {
           @include flex-align-center-style;
           gap : 0.2rem;
@@ -64,16 +68,8 @@
           &.total {
             color: $snowa-text-primary-color;
           }
-          &.pending {
-            color:$snowa-text-pending-color;
-          }
-          &.received {
-            color: $snowa-text-completed-color;
-          }
-          &.transactions {
-            color: $snowa-text-primary-color;
-          }
         }
+        
       }
     }
   }

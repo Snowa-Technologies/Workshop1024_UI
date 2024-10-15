@@ -7,6 +7,8 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 import StatisticsBox from "./Components/StatisticBox";
 import {getStatisticsData} from "../../store/actions/dashboard-action";
 import {formatAmount} from "../../global/utils";
+import CreditStatisticBox from "./Components/CreditStatisticBox";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
  
 function Dashboard() {
   const dispatch = useDispatch();
@@ -38,6 +40,8 @@ function Dashboard() {
                       sdata={formatAmount(dashboardData.totalPromotions)} icon={<CampaignIcon/>} />
                   <StatisticsBox mtitle={"Total Impressions"} stitle={"Total Clicks"} mdata={formatAmount(dashboardData.totalImpressions)}
                      sdata={formatAmount(dashboardData.totalClicks)} icon={<FaUsersViewfinder/>} />
+                  <CreditStatisticBox mtitle={"Available Whatsapp Credits"} stitle={"Total Clicks"} mdata={formatAmount(dashboardData.totalImpressions)}
+                     sdata={formatAmount(dashboardData.totalClicks)} icon={<WhatsAppIcon/>} />
                 </React.Fragment>
               </Box>
             </Box>
