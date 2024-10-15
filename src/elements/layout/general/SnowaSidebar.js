@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, Drawer } from '@mui/material';
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
+import CampaignIcon from '@mui/icons-material/Campaign';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { TbLogout } from "react-icons/tb";
 
 import LoginPage from "../../Login/LoginPage";
@@ -25,10 +27,10 @@ function SnowaSidebar({}) {
                                     <MenuItem icon={<GridViewRoundedIcon />}>
                                         <Link to="/">DATAPULSE</Link>  
                                     </MenuItem>
-                                    <MenuItem icon={<GridViewRoundedIcon />}>
+                                    <MenuItem icon={<CampaignIcon />}>
                                         <Link to="/campaigns">Campaigns</Link>  
                                     </MenuItem>
-                                    <MenuItem icon={<GridViewRoundedIcon />}>
+                                    <MenuItem icon={<LocalOfferIcon />}>
                                         <Link to="/newpromotion">Promotions</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<TbLogout style={{fontSize:'25px'}} />}> Logout </MenuItem>
