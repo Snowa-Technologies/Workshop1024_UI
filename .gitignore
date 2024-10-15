@@ -24,3 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 src/sass/campaign/_campagin.scss
 src/sass/campaign/_campaign-main.scss
+src/sass/campaign/_manage-campaign.scss
