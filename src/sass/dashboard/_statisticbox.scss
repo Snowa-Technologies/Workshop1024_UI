@@ -1,0 +1,192 @@
+@import "../abstracts/variable";
+
+.statbox-main {
+  border-radius: 6px;
+  min-width: 150px;
+  min-height: 150px;
+  background-color:$snowa-bg-color-white;
+  box-shadow: $shadow-box;
+  flex:1;
+  @include flex-d-column-style;
+  padding: 15px 15px 15px 15px;
+  &.hightlight-box{
+    background-color: $snowa-bg-color-light;
+  }
+  &.skeleton-box {
+    @include flex-d-column-style;
+    gap : 4px;
+    background-color: #F7F1FF;
+  }
+  .statbox-alignment {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+    flex: 1;
+    .icon-container{
+      border-radius: 50%;
+      @include justify-align-center-style;
+      height: 50px;
+      width: 50px;
+      font-size: $h2-font-size;
+      color: $snowa-secondary-color-dark;
+      background-color: $snowa-secondary-color-vlight;
+    }
+    .header-container{
+      flex: 1;
+      @include flex-d-column-style;
+      .title-container{
+        @include flex-d-column-style;
+        flex: 1;
+        gap: 0.4rem;
+        .title-header-main {
+          @include flex-align-center-style;
+          gap : 0.2rem;
+          .box-title {
+            font-size: $h6-font-size;
+            font-weight: $font-weight-semibold;
+            text-align: left;
+            color: $snowa-text-secondary-color-dark;
+            text-transform: uppercase;
+            font-family: $font-family-base !important;
+          }
+          .icon-main{
+            @include flex-align-center-style;
+            .icon-size{
+              font-size: $h7-font-size;
+              color: $snowa-text-secondary-medium;
+            }
+          }
+        }
+        .box-value {
+          text-align: left;
+          font-weight: $font-weight-semibold !important;
+          font-size: $h4-font-size;
+          &.total {
+            color: $snowa-text-primary-color;
+          }
+          &.pending {
+            color:$snowa-text-pending-color;
+          }
+          &.received {
+            color: $snowa-text-completed-color;
+          }
+          &.transactions {
+            color: $snowa-text-primary-color;
+          }
+        }
+      }
+    }
+  }
+  
+  .total-value-container{
+    text-transform: uppercase;
+    align-items: end;
+    display: flex;
+    flex: 1;
+    .title{
+      color: $snowa-text-secondary-color-light;
+      font-size:$h8-font-size;
+      flex: 1;
+      margin-bottom: 2px;
+    }
+    .value{
+       font-size: $h4-font-size;
+       color: $snowa-text-primary-color;
+       font-weight: $font-weight-semibold !important;
+    }
+  }
+  .pending-container {
+    font-size: medium;
+    @include justify-space-between-style;
+    font-weight: $font-weight-bold !important;
+    flex: 1;
+    align-items: flex-end;
+    .term-title {
+      text-align: center;
+      font-size: $h6-font-size;
+      color: $snowa-text-primary-color;
+      font-family: $font-family-base !important;
+    }
+    .term-value {
+      color: $snowa-text-pending-color;
+      font-weight: $font-weight-semibold;
+      font-size: $h5-font-size;
+    }
+  }
+  .recieved-container{
+    @include justify-space-between-style;
+    align-items: flex-end;
+    .datarow{
+      @include flex-d-column-style;
+      gap: 0.6rem;
+      text-align: center;
+      .portion{
+        flex: 1;
+        font-size: $h7-font-size;
+        color:$snowa-text-secondary-color-light;
+        &.header-row{
+          font-family: $font-family-base !important;
+          &.online{
+            color: $snowa-text-completed-color;
+          }
+          &.offline{
+            color : $snowa-text-pending-color;
+          }
+        }
+        &.value-row{
+          color: $snowa-text-primary-color;
+          font-weight: $font-weight-semibold;
+        }
+      }
+    }
+  }
+  .terms-container{
+    display: flex;
+    align-items: flex-end;
+    margin-top:4px;
+    gap : 60px;
+    .data-box-main{
+      display : flex;
+      gap : 10px;
+      .left-arrow {
+        align-self: end;
+      }
+      .data-content{
+        display : flex;
+        gap : 60px;
+      }
+    }
+    .fee-term-row{
+        @include flex-d-column-style;
+        gap: 0.6rem;
+        text-align: center;
+        .portion{
+            flex: 1;
+            font-size: 14px;
+            color:$snowa-text-secondary-color-light;
+
+            &.term-header-row{
+            font-family: $font-family-base !important;
+            margin-bottom: 4px;
+            &.online{
+                color: $snowa-text-completed-color;
+            }
+            &.offline{
+                color : $snowa-text-pending-color;
+            }
+            }
+            &.term-value-row{
+              color: $snowa-text-primary-color;
+              font-weight: 500;
+              margin-bottom: 4px;
+            }
+            &.term-total-amount{
+                color: $snowa-text-primary-color;
+                font-weight: 400;
+                margin-bottom: 4px;
+                font-weight:300;
+            }
+        }
+    }
+}
+}

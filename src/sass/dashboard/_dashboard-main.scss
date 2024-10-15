@@ -1,0 +1,35 @@
+.dashboard-container{
+    @include flex-d-column-style;
+    margin: 20px;
+    gap:1.5rem;
+    .dashboard-title {
+        @include flex-r-gap-style;
+        align-items: center;
+        gap : 10px;
+        .title{
+            @include page-title-style;
+        }
+        .date{
+            @include page-title-style;
+            font-size : 15px;
+        }
+    }
+    
+    .dashboard-main{
+       @include flex-r-gap-style;
+        .fee-container{
+            @include flex-d-column-style;
+            flex: 2;
+            gap: 1.5rem;
+            .fee-subcontainer{
+                @include flex-r-gap-style;
+                flex: 1;
+                .fee-boxes {
+                    @include flex-d-column-style;
+                    gap : 1.5rem;
+                }
+            }
+        }
+    }
+}
+
