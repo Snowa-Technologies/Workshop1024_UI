@@ -80,7 +80,7 @@ return (
   <Box className="table-container grid-main">
     <Box className="page-title">Manage Campaigns</Box>
     <Box className="search-box">
-        <Button className="button" onClick={() => navigate('/addcampaigns')}> + New Campaign</Button>
+        <Button className="button" onClick={() => navigate('/newcampaign')}> + New Campaign</Button>
     </Box>
     <Box className = "table-mantine">
         <MantineReactTable table={table} /> 

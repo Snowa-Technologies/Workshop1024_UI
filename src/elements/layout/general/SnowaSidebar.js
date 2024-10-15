@@ -8,10 +8,8 @@ import { TbLogout } from "react-icons/tb";
 import LoginPage from "../../Login/LoginPage";
 
 const Dashboard = React.lazy(() => import('../../Dashboard/Dashboard.js')); 
-const Campaign = React.lazy(() => import('../../Campaigns/Campaign.js') );
+const NewCampaign = React.lazy(() => import('../../Campaigns/NewCampaign.js') );
 const ManageCampaigns = React.lazy(() => import('../../Campaigns/ManageCampaigns.js') );
-const Promotion = React.lazy(() => import('../../Promotions/Promotion.js') );
-const NewPromotion = React.lazy(() => import('../../Promotions/NewPromotion.js') );
 
 function SnowaSidebar({}) {
 
@@ -44,8 +42,7 @@ function SnowaSidebar({}) {
                             <Routes>
                                 <Route path="/" element={<Dashboard/>}/> : 
                                 <Route path="/campaigns" element={<ManageCampaigns />} />
-                                <Route path="/addcampaigns" element={<Campaign />} />
-                                <Route path="/newpromotion" element={<NewPromotion/>} />
+                                <Route path="/newcampaign" element={<NewCampaign />} />
                                 <Route path="/log" element={<LoginPage/>}/>
                             </Routes>
                             </Suspense>
