@@ -1,35 +1,37 @@
-.campaign-main{
+.new-campaign{
     @include page-layout-style;
-    .title{
-       @include  page-title-style;
+    .header-container{
+        @include justify-space-between-style;
+        .page-title{
+            @include  page-title-style;
+        }
+        .alert{
+            height: 30px;
+        }
     }
-    .text-box{
-        @include text-box-style;
-    }
-    .error-Validation{
-        @include text-input-error-style;
-        background-color: $snowa-bg-color-white;
-    }
-    .buttons-container{
-        @include justify-align-center-style;
-        position: relative; 
-        gap:40px;
-        .all-buttons{
-            @include flex-align-center-style;
+    .form-container{
+        background-color:$snowa-bg-color-white;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        border-radius: 3px;
+        .text-box{
+           background-color: $snowa-bg-color-white-smoky;
+        }
+        .error-Validation{
+            @include text-input-error-style;
+            background-color: $snowa-bg-color-white;
+        }
+        .actions-buttons{
+            @include justify-content-center;
             gap: 40px;
-            .cancel-button{
+            .cancel{
                 @include reset-button-style;
             }
-            .add-button{
+            .add{
                 @include save-button-style;
             }
         }
-        .alert{
-            height: 40px;
-            position: absolute; 
-            right: 0; 
-        }
     }
 }
-
-
