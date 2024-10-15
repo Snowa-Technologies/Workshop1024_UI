@@ -1,3 +1,4 @@
+@use 'sass:color';
 //customize bootstrap
 @import './bs-custom';
 
@@ -91,13 +92,13 @@ $charade: #23252F;
 /////////////////////////
 // Primary Light
 /////////////////////////
-$primary-light: lighten($primary, 45%);
-$secondary-light: lighten($secondary, 65%);
-$success-light: lighten($success, 48%);
-$warning-light: lighten($warning, 30%);
-$danger-light: lighten($danger, 38%);
-$info-light: lighten($info, 47%);
-$dark-light: lighten($dark, 40%);
+$primary-light: color.scale($primary, $lightness: 45%);
+$secondary-light: color.scale($secondary, $lightness: 65%);
+$success-light: color.scale($success, $lightness: 48%);
+$warning-light: color.scale($warning, $lightness: 30%);
+$danger-light: color.scale($danger, $lightness: 38%);
+$info-light: color.scale($info, $lightness: 47%);
+$dark-light: color.scale($dark, $lightness: 40%);
 
 /////////////////////////
 // Opacity 
@@ -143,16 +144,16 @@ $radius: 0.5rem;
 :root{
 	--primary: #{$primary};
 	--secondary: #{$secondary};
-	--primary-hover: #{darken($primary, 10)};
-	--primary-dark: #{darken($primary, 30)};
-	--rgba-primary-1: #{rgba($primary, 0.1)};
-	--rgba-primary-2: #{rgba($primary, 0.2)};
-	--rgba-primary-3: #{rgba($primary, 0.3)};
-	--rgba-primary-4: #{rgba($primary, 0.4)};
-	--rgba-primary-5: #{rgba($primary, 0.5)};
-	--rgba-primary-6: #{rgba($primary, 0.6)};
-	--rgba-primary-7: #{rgba($primary, 0.7)};
-	--rgba-primary-8: #{rgba($primary, 0.8)};
-	--rgba-primary-9: #{rgba($primary, 0.9)};
+	--primary-hover: #{color.adjust($primary, $lightness: -10%)};
+	--primary-dark: #{color.adjust($primary, $lightness: -30%)};
+	--rgba-primary-1: #{color.scale($primary, $alpha: 10%)};
+	--rgba-primary-2: #{color.scale($primary, $alpha: 20%)};
+	--rgba-primary-3: #{color.scale($primary, $alpha: 30%)};
+	--rgba-primary-4: #{color.scale($primary, $alpha: 40%)};
+	--rgba-primary-5: #{color.scale($primary, $alpha: 50%)};
+	--rgba-primary-6: #{color.scale($primary, $alpha: 60%)};
+	--rgba-primary-7: #{color.scale($primary, $alpha: 70%)};
+	--rgba-primary-8: #{color.scale($primary, $alpha: 80%)};
+	--rgba-primary-9: #{color.scale($primary, $alpha: 90%)};
 }
 
