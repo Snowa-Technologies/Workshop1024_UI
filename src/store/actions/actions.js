@@ -19,6 +19,11 @@ export const addPromotionActions = { // Action types to add new promotion
     RESET_PROMOTION_STATE: "RESET_PROMOTION_STATE"
 };
 
+export const getCampaignsActions = { // Action types to fetch allCampaigns
+    GET_CAMPAIGNS_SUCCESS:    'GET_CAMPAIGNS_SUCCESS',
+    GET_CAMPAIGNS_FAILURE:    'GET_CAMPAIGNS_FAILURE'
+};
+
 
 
 

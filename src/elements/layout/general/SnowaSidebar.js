@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, Drawer } from '@mui/material';
 import GridViewRoundedIcon from "@mui/icons-material/GridViewRounded";
-import CampaignIcon from '@mui/icons-material/Campaign';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { TbLogout } from "react-icons/tb";
 
 import LoginPage from "../../Login/LoginPage";
 
 const Dashboard = React.lazy(() => import('../../Dashboard/Dashboard.js')); 
 const Campaign = React.lazy(() => import('../../Campaigns/Campaign.js') );
+const ManageCampaigns = React.lazy(() => import('../../Campaigns/ManageCampaigns.js') );
 const Promotion = React.lazy(() => import('../../Promotions/Promotion.js') );
 const NewPromotion = React.lazy(() => import('../../Promotions/NewPromotion.js') );
 
@@ -28,10 +27,10 @@ function SnowaSidebar({}) {
                                     <MenuItem icon={<GridViewRoundedIcon />}>
                                         <Link to="/">DATAPULSE</Link>  
                                     </MenuItem>
-                                    <MenuItem icon={<CampaignIcon />}>
+                                    <MenuItem icon={<GridViewRoundedIcon />}>
                                         <Link to="/campaigns">Campaigns</Link>  
                                     </MenuItem>
-                                    <MenuItem icon={<LocalOfferIcon />}>
+                                    <MenuItem icon={<GridViewRoundedIcon />}>
                                         <Link to="/newpromotion">Promotions</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<TbLogout style={{fontSize:'25px'}} />}> Logout </MenuItem>
@@ -44,7 +43,8 @@ function SnowaSidebar({}) {
                         <Suspense>
                             <Routes>
                                 <Route path="/" element={<Dashboard/>}/> : 
-                                <Route path="/campaigns" element={<Campaign />} />
+                                <Route path="/campaigns" element={<ManageCampaigns />} />
+                                <Route path="/addcampaigns" element={<Campaign />} />
                                 <Route path="/newpromotion" element={<NewPromotion/>} />
                                 <Route path="/log" element={<LoginPage/>}/>
                             </Routes>

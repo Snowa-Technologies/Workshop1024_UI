@@ -1,6 +1,12 @@
-import {  addNewCampaignActions} from "../actions/actions";
+import { Campaign } from "@mui/icons-material";
+import {  addNewCampaignActions, getCampaignsActions} from "../actions/actions";
+
 const addNewCampaignState = {// State for addNewCampaign
     newCampaign : {},
+    generalError: ""
+};
+const getCampaignsState = {// State for getCampaigns
+    campaigns : [],
     generalError: ""
 };
 
@@ -25,6 +31,28 @@ export const addNewCampaignReducer = (state = addNewCampaignState, action) => {
             return{
                 ...state,
                 newCampaign:{}
+            }
+        default:
+            return state;
+    }
+};
+
+/***
+ * Reducer to handle to getCampaigns
+ */
+export const getCampaignsReducer = (state = getCampaignsState, action) => {
+    switch(action.type){
+        case getCampaignsActions.GET_CAMPAIGNS_SUCCESS:
+            return{
+                ...state,
+                campaigns: action.payload,
+                generalError:""
+            }
+        case getCampaignsActions.GET_CAMPAIGNS_FAILURE:
+            return{
+                ...state,
+                campaigns:[],
+                generalError: action.payload
             }
         default:
             return state;

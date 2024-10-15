@@ -5,9 +5,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewCampaign, resetNewCampaign } from '../../store/actions/campaign-action';
+import { useNavigate } from 'react-router-dom';
 
 const Campaign = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [campaign, setCampaign] = useState({});
 
@@ -45,8 +47,7 @@ const Campaign = () => {
   };
 
   const handleDateChange = (name, newValue) => {
-    const formattedDate = newValue ? dayjs(newValue).format('DD/MM/YYYY') : '';
-    setCampaign((prevState) => ({ ...prevState, [name]: formattedDate }));
+    setCampaign((prevState) => ({ ...prevState, [name]: newValue }));
     setValidationErrors((prevErrors) => {
         const newErrors = { ...prevErrors };
         delete newErrors[name];
@@ -103,17 +104,19 @@ const Campaign = () => {
   return (
     <Box className="campaign-main">
       <Typography className="title">New Campaign</Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-            <Grid item xs={4}>
-            <TextField  type="text"  label="Campaign Name" name="c_nm" value={campaign["c_nm"] || ""}   onChange={handleChange}  className={ validationErrors["c_nm"] ? "error-Validation" : "text-box"}  fullWidth required />
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <TextField  type="text"  label="Campaign Name" name="c_nm" value={campaign["c_nm"] || ""}   onChange={handleChange}  className={ validationErrors["c_nm"] ? "error-Validation" : "text-box"}  fullWidth required />
+              </Grid>
             </Grid>
         </Grid>
         <Grid item xs={4}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker 
               label="Start Date"  value={campaign["start_dt"] ? dayjs(campaign["start_dt"], "DD/MM/YYYY") : null}  required
-              onChange={(newValue) => handleDateChange('start_dt', newValue)} 
+              onChange={(newValue) => handleDateChange('start_dt', newValue)}  minDate = {dayjs()}
               renderInput={(params) => <TextField {...params} fullWidth  sx={{ width: "385px" }} className={ validationErrors["start_dt"] ? "error-Validation" : "text-box"} />}
             />
           </LocalizationProvider>
@@ -121,8 +124,11 @@ const Campaign = () => {
         <Grid item xs={4}>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker 
-              label="End Date" sx={{ width: "395px" }} value={campaign["end_dt"] ? dayjs(campaign["end_dt"], "DD/MM/YYYY") : null} required
-              onChange={(newValue) => handleDateChange('end_dt', newValue)}  
+              label="End Date"  value={campaign["end_dt"] ? dayjs(campaign["end_dt"], "DD/MM/YYYY") : null} required 
+              onChange={(newValue) => {
+                const endDate = newValue ? dayjs(newValue).endOf('day') : null;
+                handleDateChange('end_dt', endDate); // Fixed key from 'start_dt' to 'end_dt'
+              }} minDate = {dayjs()}
               renderInput={(params) => <TextField {...params} fullWidth className={ validationErrors["end_dt"] ? "error-Validation" : "text-box"} />}
             />
           </LocalizationProvider>
@@ -133,7 +139,8 @@ const Campaign = () => {
       </Grid>
       <Box className="buttons-container">
             <Box className="all-buttons">
-                <Button type='button' className='cancel-button' onClick={resetForm} >Cancel</Button>
+               <Button type='button' className='cancel-button' onClick={() => navigate('/campaigns')} >Cancel</Button>
+                <Button type='button' className='cancel-button' onClick={resetForm} >Reset</Button>
                 <Button type='submit' className='add-button' onClick={handleSubmit}>Save</Button>
             </Box>
             {showAlert && ( <Stack className='alert'>  <Alert severity={alertSeverity} onClose={hideAlert}>  {alertMessage} </Alert>  </Stack> )}
