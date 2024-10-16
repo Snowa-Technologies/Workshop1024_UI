@@ -12,10 +12,8 @@ const Campaign = () => {
   const navigate = useNavigate();
 
   // State to store newCampaign form data
-  const [newCampaign, setNewCampaign] = useState({});
-
-  // State to handle validation errors
-  const [validationErrors, setValidationErrors] = useState({});
+  const [newCampaign, setNewCampaign] = useState({ c_nm : '', start_dt : '', end_dt : '', desc : ''});
+  const [checkError, setCheckError] = useState(false); 
 
   // States to manage alert messages
   const [alertMessage, setAlertMessage] = useState('');
@@ -45,63 +43,40 @@ const Campaign = () => {
   const handleChange = (event) => {
     const { name, value} = event.target;
     setNewCampaign((prevState) => ({ ...prevState, [name]: value }));
-
-    setValidationErrors((prevErrors) => { // Remove any existing validation error for the field
-      const newErrors = { ...prevErrors };
-      delete newErrors[name];
-      return newErrors;
-    });
   };
- // Handle changes in date fields
+  // Handle changes in date fields
   const handleDateChange = (name, newValue) => {
     setNewCampaign((prevState) => ({ ...prevState, [name]: newValue }));
-
-    setValidationErrors((prevErrors) => { // Remove any existing validation error for the field
-        const newErrors = { ...prevErrors };
-        delete newErrors[name];
-        return newErrors;
-      });
   };
   // Reset the form by clearing all input fields and errors
   const resetForm = () => { 
-    setNewCampaign((prevState) => 
-    Object.keys(prevState).reduce((acc,key) => {
-      acc[key] = ""
-      return acc;
-      },{})
-    );
-    setValidationErrors({});
+    setNewCampaign({ c_nm : '', start_dt : '', end_dt : '', desc : ''});
     setAlertMessage('');
     setShowAlert(false);
+    setCheckError(false);
   };
   // Display alert message with a specified severity level
   const showAlertMessage = (message, severity = 'info', timeout = 5000) => {
     setAlertMessage(message);
     setAlertSeverity(severity);
     setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, timeout)
   };
   // Hide alert message manually
   const hideAlert = () => {
     setShowAlert(false);
   };
-
   // Validate the form by checking if required fields are filled
   const validateForm = () => {
-    const errors = {};
     const requiredFields = ['c_nm', 'start_dt', 'end_dt']; // Fields that are required
 
-    requiredFields.forEach((field) => {
-      if (!newCampaign[field]) {
-        errors[field] = true;
+    for(const field of requiredFields) {
+      if(!newCampaign[field]) {
+        setCheckError(true);
+        return false;
       }
-    });
-    setValidationErrors(errors);
-    return Object.keys(errors).length === 0; // Return true if no errors
+    }
+    return true;
   };
-
   // Handle form submission
   const handleSubmit = () => {
     if(validateForm()) {
@@ -109,9 +84,9 @@ const Campaign = () => {
         setSubmited(true);
     }else {
         showAlertMessage("Please fill all required fields", "error"); // Show error alert if validation fails
+        return; 
     }
   };
-
   return (
     <Box className="new-campaign">
       <Box className="header-container">
@@ -123,39 +98,40 @@ const Campaign = () => {
           <Grid item xs={12}>
               <Grid container spacing={2}>
                 <Grid item xs={4}>
-                  <TextField  type="text"  label="Campaign Name" name="c_nm" value={newCampaign["c_nm"] || ""}   onChange={handleChange}  className={ validationErrors["c_nm"] ? "error-Validation" : "text-box"}  fullWidth required />
+                  <TextField  type="text"  label="Campaign Name" name="c_nm" value={newCampaign["c_nm"] || ""}   onChange={handleChange}  className={ ( newCampaign.c_nm === "" && checkError ) ? "error-Validation" : "text-box"}  fullWidth required />
                 </Grid>
               </Grid>
           </Grid>
           <Grid item xs={4}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker 
-                label="Start Date"  value={newCampaign["start_dt"] ? dayjs(newCampaign["start_dt"], "DD/MM/YYYY") : null}  required
-                onChange={(newValue) => handleDateChange('start_dt', newValue)}  minDate = {dayjs()}
-                renderInput={(params) => <TextField {...params} fullWidth  className={ validationErrors["start_dt"] ? "error-Validation" : "text-box"} />}
+              <DatePicker fullWidth
+                label="Start Date"  value={newCampaign["start_dt"] ? dayjs(newCampaign["start_dt"], "DD/MM/YYYY") : null}  required className={( !newCampaign.start_dt && checkError ) ? "error-Validation datefield-width" : "text-box datefield-width"}
+                onChange={(newValue) => handleDateChange('start_dt', newValue)}  minDate = {dayjs()} 
+                renderInput={(params) => <TextField {...params} fullWidth  />}
               />
             </LocalizationProvider>
           </Grid>
           <Grid item xs={4}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker 
-                label="End Date"  value={newCampaign["end_dt"] ? dayjs(newCampaign["end_dt"], "DD/MM/YYYY") : null} required 
+                label="End Date"  value={newCampaign["end_dt"] ? dayjs(newCampaign["end_dt"], "DD/MM/YYYY") : null} required
+                 className={ ( !newCampaign.end_dt && checkError ) ? "error-Validation datefield-width" : "text-box datefield-width"} 
                 onChange={(newValue) => {
                   const endDate = newValue ? dayjs(newValue).endOf('day') : null;
                   handleDateChange('end_dt', endDate); 
                 }} minDate = {dayjs()}
-                renderInput={(params) => <TextField {...params} fullWidth className={ validationErrors["end_dt"] ? "error-Validation" : "text-box"} />}
+                renderInput={(params) => <TextField {...params} fullWidth />}
               />
             </LocalizationProvider>
           </Grid>
           <Grid item xs={8}>
-              <TextField  type="text"  label="Description" name="desc" value={newCampaign["desc"] || ""} onChange={handleChange}  className={ validationErrors["desc"] ? "error-Validation" : "text-box"}  fullWidth />
+              <TextField  type="text"  label="Description" name="desc" value={newCampaign["desc"] || ""} onChange={handleChange}  className="text-box"  fullWidth />
           </Grid>
         </Grid>
         <Box className="actions-buttons">
-              <Button type='button' className='cancel' onClick={() => navigate('/campaigns')} >Cancel</Button>
-              <Button type='button' className='cancel' onClick={resetForm} >Reset</Button>
-              <Button type='submit' className='add' onClick={handleSubmit}>Save</Button>
+          <Button type='button' className='cancel' onClick={() => navigate('/campaigns')} >Cancel</Button>
+          <Button type='button' className='cancel' onClick={resetForm} >Reset</Button>
+          <Button type='submit' className='add' onClick={handleSubmit}>Save</Button>
         </Box>
       </Box>
     </Box>
