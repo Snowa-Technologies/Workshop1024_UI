@@ -7,15 +7,17 @@ const CampaignChart = ({dashboardData}) => {
      {name: 'Clicks',data: dashboardData.chartData ? dashboardData.chartData.chartClicks : []}, ]);
 
   useEffect(() => {
-    setSeries([ {name: 'Impressions',data: dashboardData.chartData ? dashboardData.chartData.chartImpr : []},
+    if(dashboardData.chartData) {
+      setSeries([ {name: 'Impressions',data: dashboardData.chartData ? dashboardData.chartData.chartImpr : []},
         {name: 'Clicks',data: dashboardData.chartData ? dashboardData.chartData.chartClicks : []}, ]);
-    setOptions(prevOptions => ({
+      setOptions(prevOptions => ({
           ...prevOptions,
           xaxis: {
               ...prevOptions.xaxis,
               categories: dashboardData.chartData ? dashboardData.chartData.labels : []
           }
       }));
+    }
   },[dashboardData])
 
   const [options, setOptions] = useState({
