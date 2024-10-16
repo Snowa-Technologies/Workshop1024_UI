@@ -8,14 +8,18 @@ import dayjs from 'dayjs';
 import { useDispatch, useSelector } from "react-redux";
 import { addPromotion, resetPromotion, getCampaignNames } from "../../store/actions/promotion-action";
 import { Alert, Stack } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 function NewPromotion(){
+
+    const navigate = useNavigate();
 
     const [promotionData, setPromotionData] = useState({p_nm : '', c_id : "", discount : "", promo : "", 
         start_dt : null, end_dt : null, desc : '', d_type : ''});
     const [checkError, setCheckError] = useState(false);
     const [submited, setSubmited] = useState(false);
-    const fetchOnce = useRef(false)
+    const fetchOnce = useRef(false);
+    const [dates, setDates] = useState({ minDate : dayjs(), maxDate : null});
     
     //Get result of add promotion data from store
     const dispatch = useDispatch();
@@ -73,7 +77,9 @@ function NewPromotion(){
         if(name === "c_id") {
             for(const item of campaignNames) {
                 if(item.c_id === value) {
-                    setPromotionData((prevSate) => ({...prevSate, [name]: value, c_nm : item.c_nm}));
+                    setPromotionData((prevSate) => ({...prevSate, [name]: value, c_nm : item.c_nm, 
+                        start_dt : dayjs(item.start_dt), end_dt : dayjs(item.end_dt)}));
+                    setDates((...prevState) => ({...prevState, minDate : dayjs(item.start_dt), maxDate : dayjs(item.end_dt)}));
                     return;
                 }
             }
@@ -90,9 +96,6 @@ function NewPromotion(){
                     setAlertMessage("Please select discount type");
                     setAlertSeverity('error');
                     setShowAlert(true);
-                    setTimeout(() => {
-                        setShowAlert(false);
-                    }, 3000); 
                     return false;
                 }
                 else if (promotionData[item] === "Percentage") {
@@ -101,15 +104,20 @@ function NewPromotion(){
                         setAlertMessage("Discount percentage not greater than 100 percentage");
                         setAlertSeverity('error');
                         setShowAlert(true);
-                        setTimeout(() => {
-                            setShowAlert(false);
-                        }, 3000);
                         return false;
                     }
                 }
             }
             else if(!promotionData[item] && item !== "desc") {
                 return false;
+            }
+            else if(item === "start_dt") {
+                if(new Date(promotionData[item]) > new Date(promotionData.end_dt)) {
+                    setAlertMessage("Start date must be less than End date");
+                    setAlertSeverity('error');
+                    setShowAlert(true);
+                    return false;
+                }
             }
         }
         return true;
@@ -190,7 +198,7 @@ function NewPromotion(){
                                         className = {(!promotionData.start_dt && checkError === true) ? "error-border date-field-width" : "input-text date-field-width" }
                                         value = { promotionData["start_dt"] ? dayjs(promotionData["start_dt"], "DD/MM/YYYY") : null } required
                                             onChange={(newValue) => textFieldChange({ target: { name: "start_dt", value: newValue || null, type: 'date' } })}
-                                            minDate = {dayjs()} renderInput={(params) => <TextField {...params} fullWidth />}/>
+                                            minDate = {dayjs(dates.minDate) || dayjs()} maxDate = {dayjs(dates.maxDate) || null} renderInput={(params) => <TextField {...params} fullWidth />}/>
                                 </LocalizationProvider>
                             </Grid>
                             <Grid item xs = {4}>
@@ -202,7 +210,7 @@ function NewPromotion(){
                                                     const endDate = newValue ? dayjs(newValue).endOf('day') : null;
                                                     textFieldChange({ target: { name: "end_dt", value: endDate || null, type: 'date' } })}
                                                 }
-                                                minDate = {dayjs()} renderInput={(params) => <TextField {...params} fullWidth />}/>
+                                                minDate = {dayjs(dates.minDate) || dayjs()} maxDate = {dayjs(dates.maxDate) || null} renderInput={(params) => <TextField {...params} fullWidth />}/>
                                 </LocalizationProvider>
                             </Grid>
                         </Grid>
@@ -218,7 +226,7 @@ function NewPromotion(){
                     </Grid>
                     <Grid item xs = {12}>
                         <Box className = "buttons-container">
-                            <Link to="/noticeboard"><Button className = "button cancel">Cancel</Button></Link>
+                            <Button className = "button cancel" onClick={() => navigate('/promotions')}>Cancel</Button>
                             <Button className = "button cancel" onClick = {resetForm}>Reset</Button>
                             <Button className = "button" onClick = {handleCreate}>Create</Button>
                             <Link to="/noticeboard" style={{ display: "none" }}></Link>

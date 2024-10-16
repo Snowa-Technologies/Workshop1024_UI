@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector} from "react-redux";
 import { FaLongArrowAltRight, FaLongArrowAltLeft, FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
-import { getPromotions } from '../../store/actions/promotion-action';
+import { getPromotions, getCampaignNames } from '../../store/actions/promotion-action';
 
 const ManagePromotions = () => {
 
@@ -15,8 +15,9 @@ const ManagePromotions = () => {
 
   const navigate = useNavigate();
 
-  const [filters, setfilters] = useState( { pageNumber : 1, pageCount : 5 }); // State to manage pagination filters (page number and count)
+  const [filters, setfilters] = useState( { pageNumber : 1, pageCount : 5, c_id : "all" }); // State to manage pagination filters (page number and count)
   const allPromotions = useSelector(state => state.getPromotionsReducer.promotions); // Selector to get the campaigns from the Redux store
+  const campaignNames = useSelector(state => state.campaignNamesReducer.campaignNames);
 
   useEffect(() => {
     if(fetchOnce.current === true && isActionChange.current === true) {
@@ -27,6 +28,7 @@ const ManagePromotions = () => {
   // useEffect to fetch campaigns only on the first render
   useEffect(() => { 
     if (!fetchOnce.current) {
+      dispatch(getCampaignNames());
       dispatch(getPromotions(filters));
       fetchOnce.current = true;   // Set the fetchOnce.current to true to prevent refetching
     }
@@ -58,38 +60,42 @@ const ManagePromotions = () => {
     isActionChange.current = true;
   };
 
+  const calConversionRate = (clicks) => {
+    return (50/clicks) * 100;
+  }
+
   // Memoized columns configuration for the MantineReactTable
   const columns = useMemo( () => 
     [
       { header:"Name", 
-        accessorFn: (row) => { return ( <Typography className = "data-column title"></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className = "data-column title">{row.p_nm}</Typography> )}, 
       },
       { header: "Campaign", 
-        accessorFn: (row) => ( <Typography className='data-column'></Typography> )
+        accessorFn: (row) => ( <Typography className='data-column'>{row.c_nm}</Typography> )
       },
       { header:"Discount", 
-        accessorFn: (row) => { return ( <Typography className='data-column '></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className='data-column '>{row.d_type === "Percentage" ? row.discount + '%' : '₹ ' + formatCurrency(row.discount)}</Typography> )}, 
       },
       { header:"Promo Code", 
-        accessorFn: (row) => { return ( <Typography className='data-column '></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className='data-column '>{row.promo}</Typography> )}, 
       },
       { header:"Impressions", 
-        accessorFn: (row) => { return ( <Typography className='data-column '></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className='data-column '>{row.impr}</Typography> )}, 
       },
       { header:"Clicks", 
-        accessorFn: (row) => { return ( <Typography className='data-column '></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className='data-column '>{row.click}</Typography> )}, 
       },
       { header:"Conversion Rate", 
-        accessorFn: (row) => { return ( <Typography className='data-column '></Typography> )}, 
+        accessorFn: (row) => { return ( <Typography className='data-column '>{calConversionRate(row.click) + '%'}</Typography> )}, 
       },
       {
         header: "Status",
         accessorFn: (row) => {
-          // return row["status"] && row["status"] === 1 ? (
-          //   <Typography className='data-column active'>Active</Typography>
-          // ) : (
-          //   <Typography className='data-column inactive'>Inactive</Typography>
-          // );
+          return row["status"] && row["status"] === 1 ? (
+            <Typography className='data-column active'>Active</Typography>
+          ) : (
+            <Typography className='data-column inactive'>Inactive</Typography>
+          );
         },
       },
       { header:"Action", 
@@ -103,7 +109,7 @@ const ManagePromotions = () => {
   );
 
   const table = useMantineReactTable({
-    columns, data: allPromotions.campaigns || [],
+    columns, data: allPromotions.promotions || [],
     renderTopToolbar: () => { // Custom top toolbar for the table
       return (
         <Box className="top-toolbar title"> 
@@ -144,10 +150,12 @@ return (
     <Box className="primary-actions">
         <FormControl required >
             <InputLabel id = "campaign">Select Campaign</InputLabel>
-            <Select labelId = "campaign" label = "Select Campaign" value={filters.c_nm || "all"}  required onChange={handleChange} 
-                className = "campaign-select" name = "c_nm">
+            <Select labelId = "campaign" label = "Select Campaign" value={filters.c_id || "all"}  required onChange={handleChange} 
+                className = "campaign-select" name = "c_id">
                     <MenuItem  value = "all">All</MenuItem>
-                    <MenuItem  value = "dussera sale">Dussera Sale</MenuItem>
+                    {campaignNames.map((item,index) => (
+                      <MenuItem key = {index} value = {item.c_id}>{item.c_nm}</MenuItem>
+                    ))}
             </Select>
         </FormControl>
         <Button className="button" onClick={() => navigate('/newpromotion')}> + New Promotion</Button>

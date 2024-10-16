@@ -16,7 +16,7 @@ const NewPromotion = React.lazy(() => import('../../Promotions/NewPromotion.js')
 const ManagePromotions = React.lazy(() => import('../../Promotions/ManagePromotions.js') );
 
 
-function SnowaSidebar({}) {
+function SnowaSidebar() {
 
     return (
 

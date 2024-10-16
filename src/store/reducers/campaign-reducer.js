@@ -1,4 +1,3 @@
-import { Campaign } from "@mui/icons-material";
 import {  addNewCampaignActions, getCampaignsActions} from "../actions/actions";
 
 const addNewCampaignState = {// State for addNewCampaign

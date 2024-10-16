@@ -47,7 +47,7 @@ function Dashboard() {
               </Box>
             </Box>
         </Box>
-        <CampaignChart/>
+        <CampaignChart dashboardData = {dashboardData}/>
       </Box>
     </React.Fragment>
   );

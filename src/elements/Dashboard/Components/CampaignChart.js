@@ -1,11 +1,24 @@
 import { Box } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const CampaignChart = () => {
-  const [series] = useState([ {name: 'Impressions',data: [15000, 21000]}, {name: 'Clicks',data: [1800, 3500]}, ]);
+const CampaignChart = ({dashboardData}) => {
+  const [series, setSeries] = useState([ {name: 'Impressions',data: dashboardData.chartData ? dashboardData.chartData.chartImpr : []},
+     {name: 'Clicks',data: dashboardData.chartData ? dashboardData.chartData.chartClicks : []}, ]);
 
-  const [options] = useState({
+  useEffect(() => {
+    setSeries([ {name: 'Impressions',data: dashboardData.chartData ? dashboardData.chartData.chartImpr : []},
+        {name: 'Clicks',data: dashboardData.chartData ? dashboardData.chartData.chartClicks : []}, ]);
+    setOptions(prevOptions => ({
+          ...prevOptions,
+          xaxis: {
+              ...prevOptions.xaxis,
+              categories: dashboardData.chartData ? dashboardData.chartData.labels : []
+          }
+      }));
+  },[dashboardData])
+
+  const [options, setOptions] = useState({
     plotOptions: {
     bar: {horizontal: false,columnWidth: '30%',endingShape: 'rounded',dataLabels: {position: 'top'} },},
     chart: {type: "bar",height: 350,toolbar: { show: false, autoSelected: "pan" }},
@@ -22,7 +35,7 @@ const CampaignChart = () => {
     },    
     stroke: {show: true,width: 2,colors: ['transparent']},
     xaxis: {
-      categories: ['Dussehra Offer', 'Diwali Offer'],
+      categories: dashboardData.chartData ? dashboardData.chartData.labels : [],
       labels: {
         style: {
           colors: ['#000', '#000'],fontSize: '13px',fontWeight: '600'},
