@@ -13,6 +13,8 @@ const Dashboard = React.lazy(() => import('../../Dashboard/Dashboard.js'));
 const NewCampaign = React.lazy(() => import('../../Campaigns/NewCampaign.js') );
 const ManageCampaigns = React.lazy(() => import('../../Campaigns/ManageCampaigns.js') );
 const NewPromotion = React.lazy(() => import('../../Promotions/NewPromotion.js') );
+const ManagePromotions = React.lazy(() => import('../../Promotions/ManagePromotions.js') );
+
 
 function SnowaSidebar({}) {
 
@@ -32,7 +34,7 @@ function SnowaSidebar({}) {
                                         <Link to="/campaigns">Campaigns</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<LocalOfferIcon />}>
-                                        <Link to="/newpromotion">Promotions</Link>  
+                                        <Link to="/promotions">Promotions</Link>  
                                     </MenuItem>
                                     <MenuItem icon={<TbLogout style={{fontSize:'25px'}} />}> Logout </MenuItem>
                                 </Menu>
@@ -48,6 +50,7 @@ function SnowaSidebar({}) {
                                 <Route path="/newcampaign" element={<NewCampaign />} />
                                 <Route path="/log" element={<LoginPage/>}/>
                                 <Route path="/newpromotion" element={<NewPromotion />} />
+                                <Route path="/promotions" element={<ManagePromotions />} />
                             </Routes>
                             </Suspense>
                         </Box>

@@ -1,10 +1,14 @@
-import { addPromotionActions, getCampaignNamesActions} from "../actions/actions";
+import { addPromotionActions, getCampaignNamesActions, getPromotionsActions} from "../actions/actions";
 const addPromotionState = {// State for addNewCampaign
     newPromotion : {},
     generalError: ""
 };
 const campaignNamesState = {
     campaignNames : [],
+    generalError : ""
+};
+const getPromotionsState = { // state for fetching allPromotions
+    promotions : [],
     generalError : ""
 };
  
@@ -49,6 +53,27 @@ export const campaignNamesReducer = (state = campaignNamesState, action) => {
             return{
                 ...state,
                 campaignNames : [],
+                generalError : action.payload
+            }
+        default:
+            return state;
+    }
+};
+/***
+ * Reducer to fetch allPromotions
+ */
+export const getPromotionsReducer = (state = getPromotionsState, action) => {
+    switch(action.type){
+        case getPromotionsActions.GET_PROMOTIONS_SUCCESS:
+            return{
+                ...state,
+                promotions: action.payload,
+                generalError:""
+            }
+        case getPromotionsActions.GET_PROMOTIONS_FAILURE:
+            return{
+                ...state,
+                promotions : [],
                 generalError : action.payload
             }
         default:

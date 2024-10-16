@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import {  addPromotionActions, getCampaignNamesActions } from "./actions";
+import {  addPromotionActions, getCampaignNamesActions, getPromotionsActions } from "./actions";
 import { GLOBALS } from "../../global";
 /***
  * Action creators for handling success & failure to addNewPromotion
@@ -54,6 +54,36 @@ export const getCampaignNames = () => {
         })
         .catch(error => {
             dispatch(getCampaignNamesFailure(error));
+        })
+    }
+};
+
+
+/***
+ * Action creators for handling success & failure to getPromotions
+ */
+export const getPromotionsSuccess = (response) => {
+    return { type:getPromotionsActions.GET_PROMOTIONS_SUCCESS, payload:response}
+};
+export const getPromotionsFailure = (error) => {
+    let errorMessage = '';
+    if(error.response && error.response.data){
+        errorMessage = error.response.data.message || error.response.data.error || "Unknown error occurred";
+    }else{
+        errorMessage = error.message
+    }
+    return { type:getPromotionsActions.GET_PROMOTIONS_FAILURE, payload:errorMessage}
+};
+/***
+ * This function is send a get request to getPromotions
+ */
+export const getPromotions = (requestParams) => {
+    return function(dispatch) {
+        axios.get(GLOBALS.api_getpromotions, { params: requestParams}).then(response => {
+            dispatch(getPromotionsSuccess(response.data))
+        })
+        .catch(error => {
+            dispatch(getPromotionsFailure(error))
         })
     }
 };

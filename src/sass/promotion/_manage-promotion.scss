@@ -1,0 +1,19 @@
+.manage-promotion{
+    @include flex-d-column-style;
+    gap:30px;
+    padding: 20px;
+    .page-title{
+        @include page-title-style;
+    }
+    .primary-actions{
+        @include justify-between-align-center-style;
+        .campaign-select{
+            @include text-box-style;
+            width: 250px;
+        }
+        .button{
+            @include save-button-style;
+            width:150px;
+        }
+    }
+}

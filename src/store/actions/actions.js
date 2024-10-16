@@ -34,6 +34,11 @@ export const getCampaignNamesActions = { // Action types to get campaign names
     GET_CAMPAIGN_NAMES_FAILURE : "GET_CAMPAIGN_NAMES_FAILURE"
 };
 
+export const getPromotionsActions = { // Action types to fetch allPromotions
+    GET_PROMOTIONS_SUCCESS:    'GET_PROMOTIONS_SUCCESS',
+    GET_PROMOTIONS_FAILURE:    'GET_PROMOTIONS_FAILURE'
+};
+
 
 
 

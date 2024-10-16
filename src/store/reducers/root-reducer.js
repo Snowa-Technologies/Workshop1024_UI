@@ -2,7 +2,7 @@ import { combineReducers } from "redux"
 import {authUserDataReducer} from './auth-reducer';
 import {addNewCampaignReducer, getCampaignsReducer} from './campaign-reducer';
 import { getDashboardReducer } from "./dashboard-reducer";
-import {addPromotionReducer, campaignNamesReducer} from './promotion-reducer';
+import {addPromotionReducer, campaignNamesReducer, getPromotionsReducer} from './promotion-reducer';
 
 export const rootReducer = combineReducers({
     authUserDataReducer,
@@ -10,5 +10,6 @@ export const rootReducer = combineReducers({
     getCampaignsReducer,
     getDashboardReducer,
     addPromotionReducer,
-    campaignNamesReducer
+    campaignNamesReducer,
+    getPromotionsReducer
 });
