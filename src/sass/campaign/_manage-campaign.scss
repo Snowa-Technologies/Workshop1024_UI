@@ -1,0 +1,16 @@
+.manage-campaign{
+    @include flex-d-column-style;
+    gap:30px;
+    padding: 20px;
+    .page-title{
+        @include page-title-style;
+    }
+    .primary-action{
+        @include text-box-style;
+        margin-left: auto;
+        .button{
+            @include save-button-style;
+            width:150px;
+        }
+    }
+}
