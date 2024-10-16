@@ -47,6 +47,9 @@
         &.large-width {
             width: 260px;
         }
+        &.medium-width{
+            width : 200px;
+        }
         &.inactive {
             color: $snowa-text-pending-color;
         }

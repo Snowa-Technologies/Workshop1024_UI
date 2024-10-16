@@ -71,7 +71,7 @@ const ManagePromotions = () => {
         accessorFn: (row) => { return ( <Typography className = "data-column title">{row.p_nm}</Typography> )}, 
       },
       { header: "Campaign", 
-        accessorFn: (row) => ( <Typography className='data-column'>{row.c_nm}</Typography> )
+        accessorFn: (row) => ( <Typography className='data-column medium-width'>{row.c_nm}</Typography> )
       },
       { header:"Discount", 
         accessorFn: (row) => { return ( <Typography className='data-column '>{row.d_type === "Percentage" ? row.discount + '%' : '₹ ' + formatCurrency(row.discount)}</Typography> )}, 
