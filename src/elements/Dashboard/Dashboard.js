@@ -9,6 +9,7 @@ import {getStatisticsData} from "../../store/actions/dashboard-action";
 import {formatAmount} from "../../global/utils";
 import CreditStatisticBox from "./Components/CreditStatisticBox";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import CampaignChart from "./Components/CampaignChart";
  
 function Dashboard() {
   const dispatch = useDispatch();
@@ -45,7 +46,8 @@ function Dashboard() {
                 </React.Fragment>
               </Box>
             </Box>
-          </Box>
+        </Box>
+        <CampaignChart/>
       </Box>
     </React.Fragment>
   );

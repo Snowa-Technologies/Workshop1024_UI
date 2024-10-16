@@ -1,0 +1,18 @@
+.campaign-chart{
+    @include flex-d-column-style;
+    min-height: 60px;
+    min-width: 340px;
+    box-shadow: $shadow-box;
+    border: 0rem solid transparent;
+    border-radius: 5px 5px 0 0;
+    background-color: $snowa-bg-color-white;
+    .title{
+        background-color: $snowa-secondary-color-light;
+        color: $snowa-bg-color-white;
+        border-radius: 5px 5px 0 0;
+        text-align: left;
+        height: 45px;
+        @include flex-align-center-style;
+        padding-left: 15px;
+    }
+}
