@@ -18,10 +18,16 @@
         border-radius: 3px;
         .text-box{
            background-color: $snowa-bg-color-white-smoky;
+           &.datefield-width{
+            width:374px;
+           }
         }
         .error-Validation{
             @include text-input-error-style;
             background-color: $snowa-bg-color-white;
+            &.datefield-width{
+                width:374px;
+            }
         }
         .actions-buttons{
             @include justify-content-center;
