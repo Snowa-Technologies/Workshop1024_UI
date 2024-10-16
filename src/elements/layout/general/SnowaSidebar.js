@@ -12,6 +12,7 @@ import LoginPage from "../../Login/LoginPage";
 const Dashboard = React.lazy(() => import('../../Dashboard/Dashboard.js')); 
 const NewCampaign = React.lazy(() => import('../../Campaigns/NewCampaign.js') );
 const ManageCampaigns = React.lazy(() => import('../../Campaigns/ManageCampaigns.js') );
+const NewPromotion = React.lazy(() => import('../../Promotions/NewPromotion.js') );
 
 function SnowaSidebar({}) {
 
@@ -46,6 +47,7 @@ function SnowaSidebar({}) {
                                 <Route path="/campaigns" element={<ManageCampaigns />} />
                                 <Route path="/newcampaign" element={<NewCampaign />} />
                                 <Route path="/log" element={<LoginPage/>}/>
+                                <Route path="/newpromotion" element={<NewPromotion />} />
                             </Routes>
                             </Suspense>
                         </Box>

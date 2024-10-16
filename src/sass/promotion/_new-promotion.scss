@@ -1,0 +1,58 @@
+.newpromotion-main{
+    @include page-layout-style;
+    .promotion-top-style{
+        display : flex;
+        justify-content: space-between;
+        .page-title{
+            @include page-title-style;
+        }
+        .alert{
+            height: 40px;
+            position: absolute;
+            right: 0;
+        }
+    }
+    .fields-main-box{
+        background-color : $snowa-bg-color-white;
+        padding : 25px;
+        .text-boxes-gap{
+            display : flex;
+            gap : 24px;
+            .input-text{
+                @include text-box-style;
+                &.date-field-width{
+                    width : 369px;
+                }
+            }
+            .error-border{
+                @include text-input-error-style;
+                @include text-box-style;
+                &.date-field-width{
+                    width : 369px;
+                }
+            }
+            .radio-buttons-main{
+                display : flex;
+                align-items: center;
+                gap : 50px;
+            }
+            .buttons-container{
+                @include justify-content-center;
+                gap: 1.5rem !important;
+                margin-top: 15px !important;
+                .button {
+                    background-color: $snowa-bg-color-button;
+                    color: $snowa-bg-color-white;
+                    border: 1px solid $snowa-bg-color-button;
+                    text-transform: none !important;
+                    cursor : pointer;
+                    width: 120px !important;
+                    &.cancel {
+                        background-color: $snowa-bg-color-white;
+                        color:$snowa-bg-color-button;
+                    }
+                }
+            }
+        }
+    }
+}

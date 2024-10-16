@@ -23,6 +23,16 @@ export const getStatisticsActions = { // Action types to fetch dashboard statist
     GET_STATISTICS_SUCCESS:    'GET_STATISTICS_SUCCESS',
     GET_STATISTICS_FAILURE:    'GET_STATISTICS_FAILURE'
 };
+export const addPromotionActions = { // Action types to add new promotion
+    ADD_PROMOTION_SUCCESS: "ADD_PROMOTION_SUCCESS",
+    ADD_PROMOTION_FAILURE: "ADD_PROMOTION_FAILURE",
+    RESET_PROMOTION_STATE: "RESET_PROMOTION_STATE"
+};
+
+export const getCampaignNamesActions = { // Action types to get campaign names
+    GET_CAMPAIGN_NAMES_SUCCESS : "GET_CAMPAIGN_NAMES_SUCCESS",
+    GET_CAMPAIGN_NAMES_FAILURE : "GET_CAMPAIGN_NAMES_FAILURE"
+};
 
 
 
