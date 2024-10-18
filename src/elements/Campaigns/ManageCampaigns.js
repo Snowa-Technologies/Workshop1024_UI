@@ -22,7 +22,7 @@ const ManageCampaigns = () => {
     if(fetchOnce.current === true && isActionChange.current === true) {
       dispatch(getCampaigns(pagination));
     }
-  },[pagination]);
+  },[dispatch,pagination]);
 
   // useEffect to fetch campaigns only on the first render
   useEffect(() => { 
@@ -32,12 +32,12 @@ const ManageCampaigns = () => {
     }
   },[dispatch]); 
 
-  const handlePreviousPage = (e) => {  // Function to handle the 'Previous Page' button click event
+  const handlePreviousPage = () => {  // Function to handle the 'Previous Page' button click event
     setPagination({...pagination, pageNumber : pagination.pageNumber - 1}); // Update the filters to go to the previous page
     isActionChange.current = true;
   };
 
-  const handleNextPage = (e) => {  // Function to handle the 'Next Page' button click event
+  const handleNextPage = () => {  // Function to handle the 'Next Page' button click event
     setPagination({...pagination, pageNumber : pagination.pageNumber + 1}); // Update the filters to go to the next page
     isActionChange.current = true;
   };
@@ -89,7 +89,7 @@ const ManageCampaigns = () => {
           <Typography className='action-icon delete'><MdOutlineDelete/></Typography>
         </Box> )}, 
       },
-    ]
+    ], []
   );
 
   const table = useMantineReactTable({

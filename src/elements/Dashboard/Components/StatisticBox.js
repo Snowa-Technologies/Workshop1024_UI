@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, IconButton, Tooltip, Typography } from "@mui/material";
+import { Box, Tooltip, Typography } from "@mui/material";
 import { BsInfoCircle } from "react-icons/bs";
 
 const StatisticsBox = ({ mtitle, stitle, mdata, sdata, icon }) => {

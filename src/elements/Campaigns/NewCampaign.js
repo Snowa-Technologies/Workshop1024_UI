@@ -38,7 +38,7 @@ const Campaign = () => {
           resetForm(); 
         }, 2000); 
     }
-  }, [addCampaign, errorStatus]);
+  }, [dispatch, addCampaign, errorStatus]);
 
   const handleChange = (event) => {
     const { name, value} = event.target;

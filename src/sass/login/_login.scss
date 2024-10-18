@@ -71,6 +71,9 @@
               .validtion-error{
                 text-align: center;
                 @include error-label-style;
+                &.error-msg{
+                  color : $snowa-error-message;
+                }
               }
             }
             .forgot-password {

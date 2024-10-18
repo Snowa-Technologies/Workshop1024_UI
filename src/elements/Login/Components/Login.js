@@ -87,13 +87,13 @@ const Login = () => {
             <Recaptcha setError={setError} setCaptchaVerified={setCaptchaVerified} onTokenChange={handleTokenChange} setRefreshCaptcha = {setRefreshCaptcha} refreshCaptcha = {refreshCaptcha} />
             <Box className="validation-error-box">
                 {(validError && (!userName || !password)) ? (
-                <Typography className='validtion-error'>Please fill required details</Typography>
+                <Typography className='validtion-error error-msg'>Please fill required details</Typography>
                 ): null}
                 {validError ? (
-                <Typography className='validtion-error'>{authUserDataError}</Typography>
+                <Typography className='validtion-error error-msg'>{authUserDataError}</Typography>
                 ): null}
                 {error ? (
-                <Typography className='validtion-error'>Please complete the reCAPTCHA verification</Typography>
+                <Typography className='validtion-error error-msg'>Please complete the reCAPTCHA verification</Typography>
                 ) : null}
             </Box>
             <Typography className="forgot-password">Forgot Password?</Typography>

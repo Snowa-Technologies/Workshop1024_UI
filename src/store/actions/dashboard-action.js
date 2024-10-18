@@ -12,7 +12,7 @@ export const statisticsDataFailure = (error) => {
     return { type: getStatisticsActions.GET_STATISTICS_FAILURE, payload: error };
 }
 
-//Authenticate user login
+//Fetch dashboard statistics data
 export const getStatisticsData = () => {
     return function(dispatch) {
         axios.get(GLOBALS.api_statistics).then(response => {

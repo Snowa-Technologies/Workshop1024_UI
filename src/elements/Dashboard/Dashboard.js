@@ -7,7 +7,6 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 import StatisticsBox from "./Components/StatisticBox";
 import {getStatisticsData} from "../../store/actions/dashboard-action";
 import {formatAmount} from "../../global/utils";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
  
 function Dashboard() {
   const dispatch = useDispatch();

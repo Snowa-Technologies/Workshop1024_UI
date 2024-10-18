@@ -18,14 +18,14 @@ function Header({orgDetails, userName}) {
             }
         }
     }
-    const [showLogo, setShowLogo] = useState(true);
+    const [showLogo] = useState(true);
 
     return (
         <div id="main-screen-header">
             <div className={`logo header-left ${showLogo ? 'open' : 'close'}`}>
                 <a>
                     <div main-title='SnowaBot'>
-                        <img src={IMAGES.SnowaBotLogo}   title="SnowaBot Admin"></img>
+                        <img src={IMAGES.SnowaBotLogo} alt = "Logo"  title="SnowaBot Admin"></img>
                     </div>
                 </a>
             </div>
@@ -38,7 +38,7 @@ function Header({orgDetails, userName}) {
                         </IconButton>
                     </div>
                     <div className='school-logo'>
-                        <img src={findLogo(logos)}   title={orgDetails ? orgDetails.oname : ''}>
+                        <img src={findLogo(logos)} alt = "logos"  title={orgDetails ? orgDetails.oname : ''}>
                         </img>
                         <label className='school-title'>{orgDetails ? orgDetails.oname : ''}</label>
                     </div>
@@ -60,7 +60,7 @@ function Header({orgDetails, userName}) {
                 <div id="loggedInuser">
                     <div className="name">Hello <strong>{userName} !!</strong></div>
                     <div className="userpic" title="you">
-                        <img src={IMAGES.PersonAvathar} className='userIcon' ></img>
+                        <img src={IMAGES.PersonAvathar} alt = "valid person" className='userIcon' ></img>
                     </div>
                 </div>
             </div>

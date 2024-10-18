@@ -13,7 +13,7 @@ const Dashboard = React.lazy(() => import('../../Dashboard/Dashboard.js'));
 const NewCampaign = React.lazy(() => import('../../Campaigns/NewCampaign.js') );
 const ManageCampaigns = React.lazy(() => import('../../Campaigns/ManageCampaigns.js') );
 
-function SnowaSidebar({}) {
+function SnowaSidebar() {
 
     return (
 
